@@ -38,7 +38,7 @@
 \maketitle
 \vspace{-0.8in}
 \section*{Project summary}
-\label{sec:org114fcd3}
+\label{sec:org95c2847}
 
 Gravitational lensing is a phenomenon that occurs when rays of light
 from a distant background source are deflected by the gravitational
@@ -101,10 +101,10 @@ with big data efficiently.
 
 \newpage
 \section*{Project plan}
-\label{sec:orgb439678}
+\label{sec:orgc85dcc3}
 
 \subsection*{State of research}
-\label{sec:org7dd05ca}
+\label{sec:org7ea7dca}
 
 Although gravitational lensing is often thought of as an illusion,
 showing the same source in multiple images, lensing systems have
@@ -167,7 +167,7 @@ free-form lens
 \end{itemize}
 
 \subsection*{Project description}
-\label{sec:orgbf86ea5}
+\label{sec:orgb3dbdad}
 
 \begin{itemize}
 \item Goals
@@ -175,13 +175,24 @@ free-form lens
 \item Methods
 \end{itemize}
 
+Formally, the deflection field \(\bm\alpha(\bm\theta, \xi)\) can be
+expressed through a given angle on the observer's sky \(\bm\theta\), and
+a location and orientation of the 3D density \(\rho(\bm\theta,z)\). The
+convergence map (that is, the lensing mass distribution in
+dimensionless form) is given by the usual projection of the 3D mass
+density as
+
 \begin{equation}
 \label{eq:thinlens}
   \kappa(\bm\theta,\xi) = \frac{4\pi G}{cH_0}\, \frac{D_\mathrm{LS}D_\mathrm{L}}{D_\mathrm{S}} \int \rho(\bm\theta,\xi,z)\,\mathrm{d}z \,.
 \end{equation}
 
+Here, \(D_{LS}\) is the dimensionless angular-diameter distance from the
+lens to the source, \(D_L\) and \(D_S\) are analogous.  Finally, through
+Poisson's equation we can connect the deflection field to the convergence as
+
 \begin{equation}
-  \alpha(\bm\theta,\xi) = \nabla_{\bm\theta}\psi(\bm\theta,\xi) = 2\nabla^{-1}\kappa(\bm\theta,\xi)
+  \alpha(\bm\theta,\xi) = \nabla_{\bm\theta}\psi(\bm\theta,\xi) = 2\nabla_{\bm\theta}^{-1}\kappa(\bm\theta,\xi) \,.
 \end{equation}
 
 
@@ -193,7 +204,7 @@ free-form lens
 
 
 \subsection*{Potential impact}
-\label{sec:org9a00517}
+\label{sec:orge951a1c}
 
 
 
