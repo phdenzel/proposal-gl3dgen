@@ -38,7 +38,7 @@
 \maketitle
 \vspace{-0.8in}
 \section*{Project summary}
-\label{sec:org95c2847}
+\label{sec:orgfc7af01}
 
 Gravitational lensing is a phenomenon that occurs when rays of light
 from a distant background source are deflected by the gravitational
@@ -83,7 +83,7 @@ within a Bayesian framework.
 Lens modelling is inherently considered as a (degenerate) 2D inverse
 problem. The novelty of this project consists of introducing 3D models
 as direct input, which requires methods able to cover a broad range in
-solution space due to the additional degeneracies introduced
+solution space due to the additional degeneracy introduced
 thereby. Conventional modelling methods are insufficient due to the
 typically low complexity of their models whereas deep learning methods
 increase the model complexity with a high number of parameters, thus
@@ -101,73 +101,72 @@ with big data efficiently.
 
 \newpage
 \section*{Project plan}
-\label{sec:orgc85dcc3}
+\label{sec:org3209710}
 
 \subsection*{State of research}
-\label{sec:org7ea7dca}
+\label{sec:org3e4a5d7}
 
-Although gravitational lensing is often thought of as an illusion,
-showing the same source in multiple images, lensing systems have
-distinct visual features which make them relatively easy to spot by
-the trained eye. However, wide-field surveys record billions of light
-sources, from which over 100'000 strongly lensing systems may still
-await discovery \citep{Taak20,Taak23,Collett15}, and not all
-instances can be checked with same amount of attention by humans.
+Although gravitational lensing is often regarded as an optical
+illustion that shows the same source in multiple images, lensing
+systems possess distinct visual features which make them relatively
+easy to spot by the trained eye. Nevertheless, wide-field surveys
+capture billions of light sources, and over 100'000 strongly lensing
+systems may still await discovery
+\citep{Taak20,Taak23,Collett15}. Not all these instances can be
+examined by humans with the same level of scrutiny.
 
-Deep learning techniques have emerged as a promising approach for the
-automatic discovery of strong gravitational lenses. In fact, the
-number of detections and identifications of strongly lensing
-candidates has more than tripled through the usage of deep learning
-techniques \citep{Storfer22,Huang21,Rezaei22,Wilde22}.
+Deep learning methods have emerged as a promising approach for the
+automated detection of strong gravitational lenses. In fact, recent
+studies have demonstrated that deep learning techniques have led to a
+significant increase in the number of identified strong lensing
+candidates by more than threefold
+\citep{Storfer22,Huang21,Rezaei22,Wilde22}.
 
-For lens modelling, the situation is different. \cite{Young80}
-simultaneously confirmed and modelled the very first lens discovery by
-\cite{Walsh79}. They used a simple spherically symmetric lens model
-using 4 parameters to fit the observation. Ever since then, even
-modern lens modelling tools employ some type of parametric model (with
-typically no more than 8-12 parameters) to fit the density
-distribution of the lens
+Contrary to the automated discovery of strong gravitational lenses
+using deep learning, advancements for lens modelling have been more
+limited. \cite{Young80} simultaneously confirmed and modelled the
+very first lens discovery by \cite{Walsh79}. They used a simple
+spherically symmetric lens model using 4 parameters to fit the
+observation. Ever since then, even modern lens modelling tools employ
+some type of parametric model (with typically no more than 12
+parameters) to fit the density distribution of the lens
 \citep[cf.][]{Birrer18,Hezaveh17,Tessore16,Oguri10}. Note that
-\cite{Hezaveh17} use deep learning convolutional neural networks
-(CNNs) to fit mass distribution parameters to lens
-observations. However, this still prescribes the same limits on the
-complexity of the lensing galaxy's shape.
+\cite{Hezaveh17} use convolutional neural networks (CNNs) to fit
+mass distribution parameters to lens observations. However, this still
+prescribes the same parametric constraints on the complexity of the
+lensing galaxy's shape.
 
-The often ignored issue with parametric models is the assumption that
-these models are able to cover enough 
+\cite{Young81} already recognized that a major obstacle in lens
+modelling is that numerous mass distributions could plausibly explain
+observed data. This fact manifests as parameter degeneracies when
+interpreting observations as discussed by
+\cite{Saha00,Saha06,Schneider14,Birrer21}.  An often ignored
+issue with parametric models is that they assume to cover enough of
+the solution space to encompass the "truth".  Free-form lens
+modelling, on the other hand, as presented by \citep{Saha04}, uses
+over-parameterization to sample a wide range of solution
+space. Despite this, the majority of fits are still not considered
+realistic or physically viable.
 
-\begin{itemize}
-\item Issue of degeneracy
-
-\item free-form lens modelling use over parametrization
-
-\item 
-\end{itemize}
-
-Another type of lens modelling technique, the so-called
-free-form lens 
-
-
-
-
-\begin{itemize}
-\item first modelling by Young et al, parametric, degeneracies, too simple
-\item free-form models not much better in producing realistic models
-\end{itemize}
+All conventional lens modelling techniques rely on recipes which aim
+to efficiently reproduce shapes and slopes of galaxies, as they are
+usually observed. These methods therefore suppress or even completely
+ignore the evolutionary processes of galaxies and the physical
+properties which form and drive them. In contrast, cosmological
+hydrodynamical simulations have made significant strides in recent
+years, incorporating semi-analytical models which simulate star
+formation and feedback effects at small scales, enabling exploration
+of various galaxy-formation scenarios.
 
 \begin{itemize}
 \item in comes deep learning\ldots{}
-\item a few deep learning architectures
-\item 
-\end{itemize}
-
-
-\begin{itemize}
+\item deep learning architectures
 \item novelty distinguishing from the rest
 \end{itemize}
 
+
 \subsection*{Project description}
-\label{sec:orgb3dbdad}
+\label{sec:orge00256a}
 
 \begin{itemize}
 \item Goals
@@ -204,7 +203,7 @@ Poisson's equation we can connect the deflection field to the convergence as
 
 
 \subsection*{Potential impact}
-\label{sec:orge951a1c}
+\label{sec:org84e200e}
 
 
 
