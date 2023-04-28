@@ -1,0 +1,202 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1.2in]{geometry}
+\newgeometry{top=1in,bottom=1in,right=1.25in,left=1.25in}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{titling}
+\setlength{\droptitle}{-0.75in}
+\usepackage{natbib}
+\usepackage{makeidx}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{parskip}
+\usepackage{bm}
+\date{}
+\title{Deep learning the generation of gravitational lensing deflection fields from 3D models of galaxies}
+\hypersetup{
+ pdfauthor={phdenzel},
+ pdftitle={Deep learning the generation of gravitational lensing deflection fields from 3D models of galaxies},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 30.0.50 (Org mode 9.6.1)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\vspace{-0.8in}
+\section*{Project summary}
+\label{sec:org114fcd3}
+
+Gravitational lensing is a phenomenon that occurs when rays of light
+from a distant background source are deflected by the gravitational
+field of a massive foreground object, e.g. a galaxy, which almost
+perfectly aligns with the observer. While such occurrences are rare,
+they are scientifically significant, because they provide the only
+opportunity to directly infer the lensing galaxy's mass distribution,
+including its dark matter content.  This unique perspective on a
+galaxy's dark matter distribution offers exceptional insights into the
+mysteries surrounding galaxy evolution, the nature of dark matter,
+galaxy substructures, and even the expansion of the Universe. \\[0pt]
+Accurately predicting the deflection field of a strong gravitational
+lens is a complex task that requires a detailed understanding of the
+distribution of matter in the lensing galaxy. Conventional methods for
+calculating these deflection fields, such as ray-tracing, are
+computationally expensive, can take a long time to generate results,
+and typically have to be fine-tuned by an experienced expert.
+
+In recent years, deep learning methods have emerged as a promising
+approach for generating and processing image-based data in various
+scientific fields, often with super-human proficiency. These methods
+employ neural networks to learn the mapping between the input
+properties (for instance, the lensing galaxy) and the resulting image
+(in this instance, the deflection field).
+
+In this research proposal, I outline the usage of generative deep
+learning methods to produce strongly lensing deflection fields of 3D
+galaxy models from existing hydrodynamical simulation suites for the
+purpose of creating mock observations, observational fits, and
+corresponding source reconstructions. Specifically, I will explore
+various state-of-the-art deep learning architectures, including
+diffusion models, flow-based models, generative adversarial networks
+(GANs), and variational autoencoders (VAEs) to develop a model that
+can accurately generate the deflection field from a given 3D galaxy
+model. The resulting deep learning model will be used to create
+synthetic observations that can be compared to existing observational
+data to test the accuracy of the lens model, and in particular
+investigate the theoretical properties of the observed lensing
+galaxies and their corresponding background source reconstructions,
+within a Bayesian framework.
+
+Lens modelling is inherently considered as a (degenerate) 2D inverse
+problem. The novelty of this project consists of introducing 3D models
+as direct input, which requires methods able to cover a broad range in
+solution space due to the additional degeneracies introduced
+thereby. Conventional modelling methods are insufficient due to the
+typically low complexity of their models whereas deep learning methods
+increase the model complexity with a high number of parameters, thus
+able to span a wider range in solution space.
+
+As of today, roughly 10\textsuperscript{3} lenses have been discovered, only a fraction
+of those properly analysed. Moreover, it is anticipated that the
+next-generation satellites and telescopes such as
+JWST\footnote{James~Webb~Space~Telescope}, Euclid,
+SKA\footnote{Square~Kilometer~Array}, or
+ELT\footnote{Extremely~Large~Telescope} may increase this number to
+10\textsuperscript{5}. Thus, it is crucial to devise novel techniques that can scale
+with big data efficiently.
+
+
+\newpage
+\section*{Project plan}
+\label{sec:orgb439678}
+
+\subsection*{State of research}
+\label{sec:org7dd05ca}
+
+Although gravitational lensing is often thought of as an illusion,
+showing the same source in multiple images, lensing systems have
+distinct visual features which make them relatively easy to spot by
+the trained eye. However, wide-field surveys record billions of light
+sources, from which over 100'000 strongly lensing systems may still
+await discovery \citep{Taak20,Taak23,Collett15}, and not all
+instances can be checked with same amount of attention by humans.
+
+Deep learning techniques have emerged as a promising approach for the
+automatic discovery of strong gravitational lenses. In fact, the
+number of detections and identifications of strongly lensing
+candidates has more than tripled through the usage of deep learning
+techniques \citep{Storfer22,Huang21,Rezaei22,Wilde22}.
+
+For lens modelling, the situation is different. \cite{Young80}
+simultaneously confirmed and modelled the very first lens discovery by
+\cite{Walsh79}. They used a simple spherically symmetric lens model
+using 4 parameters to fit the observation. Ever since then, even
+modern lens modelling tools employ some type of parametric model (with
+typically no more than 8-12 parameters) to fit the density
+distribution of the lens
+\citep[cf.][]{Birrer18,Hezaveh17,Tessore16,Oguri10}. Note that
+\cite{Hezaveh17} use deep learning convolutional neural networks
+(CNNs) to fit mass distribution parameters to lens
+observations. However, this still prescribes the same limits on the
+complexity of the lensing galaxy's shape.
+
+The often ignored issue with parametric models is the assumption that
+these models are able to cover enough 
+
+\begin{itemize}
+\item Issue of degeneracy
+
+\item free-form lens modelling use over parametrization
+
+\item 
+\end{itemize}
+
+Another type of lens modelling technique, the so-called
+free-form lens 
+
+
+
+
+\begin{itemize}
+\item first modelling by Young et al, parametric, degeneracies, too simple
+\item free-form models not much better in producing realistic models
+\end{itemize}
+
+\begin{itemize}
+\item in comes deep learning\ldots{}
+\item a few deep learning architectures
+\item 
+\end{itemize}
+
+
+\begin{itemize}
+\item novelty distinguishing from the rest
+\end{itemize}
+
+\subsection*{Project description}
+\label{sec:orgbf86ea5}
+
+\begin{itemize}
+\item Goals
+
+\item Methods
+\end{itemize}
+
+\begin{equation}
+\label{eq:thinlens}
+  \kappa(\bm\theta,\xi) = \frac{4\pi G}{cH_0}\, \frac{D_\mathrm{LS}D_\mathrm{L}}{D_\mathrm{S}} \int \rho(\bm\theta,\xi,z)\,\mathrm{d}z \,.
+\end{equation}
+
+\begin{equation}
+  \alpha(\bm\theta,\xi) = \nabla_{\bm\theta}\psi(\bm\theta,\xi) = 2\nabla^{-1}\kappa(\bm\theta,\xi)
+\end{equation}
+
+
+\begin{itemize}
+\item Approach
+\item Expected results
+\item Possible risks
+\end{itemize}
+
+
+\subsection*{Potential impact}
+\label{sec:org9a00517}
+
+
+
+\bibliographystyle{apsrev}
+\bibliography{gl3dgen}
+\end{document}
