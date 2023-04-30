@@ -16,6 +16,7 @@
 #+LATEX_HEADER: \usepackage{cleveref}
 #+LATEX_HEADER: \usepackage[dvipsnames]{xcolor}
 #+LATEX_HEADER: \usepackage{parskip}
+#+LATEX_HEADER: \usepackage{enumitem}
 #+LATEX_HEADER: \usepackage{bm}
 
 #+LATEX: \vspace{-0.8in}
@@ -84,6 +85,7 @@ with big data efficiently.
 ** Project plan
 
 *** State of research
+<<sec:research>>
 
 Although gravitational lensing is often regarded as an optical
 illusion that shows the same source in multiple images, lensing
@@ -211,10 +213,11 @@ scientific advancement across all disciplines.
 <<sec:goals>>
 
 The main objectives of this research are:
-
+#+ATTR_LATEX: :options [leftmargin=*]
 1) To develop a generative deep learning model that can accurately
    predict gravitational lensing deflection fields from 3D models of
    galaxies.
+   #+ATTR_LATEX: :options [leftmargin=*]
    - To this end, we construct a custom training dataset of
      ray-traced, synthetic lenses from observed source images, such as
      quasars, and projected galaxy models from publicly available
@@ -223,22 +226,22 @@ The main objectives of this research are:
 2) To embed the generative deep learning model in a Bayesian lens
    modelling framework analogous to
    [[cite:&Adam22;&Denzel21;&Morningstar19;&Hezaveh17]] and compare
-   its performance and accuracy against existing lens modelling and
-   source reconstruction techniques. Note that the proposed scheme
-   will be able to draw conclusion on the 3D structure of lenses,
-   which is a novel capability no other existing lens modelling tool
-   possesses.
+   its accuracy against existing lens modelling and source
+   reconstruction techniques. Note that the proposed scheme will be
+   able to draw conclusion on the 3D structure of lenses, which is a
+   novel capability no other existing lens modelling tool possesses.
+   #+ATTR_LATEX: :options [leftmargin=*]
    - This test can be performed with corresponding gravitational lens
      datasets from surveys such as the Strong Lensing Legacy Survey
      [[citep:SL2S:&Gavazzi12;&Sonnenfeld15]], the Sloan Lens ACS
      Survey [[citep:SLACS:&Bolton2006;&Shu17]], or the Baryon
      Oscillation Spectroscopic Survey (BOSS) Emission-Line Lens Survey
      [[citep:BELLS:&Brownstein11;&Shu2016]].
-3) To test the generative lens modelling scheme (once its performance
-   is tested) on new gravitational lens observations in a "real-world"
-   setting, and to investigate the relative impact of 3D dark matter
-   distributions, galaxy shape, orientation, galaxy formation
-   scenarios, and other properties on these observations.
+3) To test the generative lens modelling scheme on new gravitational
+   lens observations in a "real-world" setting, and to investigate the
+   relative impact of 3D dark matter distributions, galaxy shape,
+   orientation, galaxy formation scenarios, and other properties on
+   these observations.
    
 **** Methods
 <<sec:methods>>
@@ -251,7 +254,6 @@ density as
 \begin{equation}\label{eq:thinlens}%
   \kappa(\bm\theta,\xi) = \frac{4\pi G}{cH_0}\, \frac{D_\mathrm{LS}D_\mathrm{L}}{D_\mathrm{S}} \int \rho(\bm\theta,\xi,z)\,\mathrm{d}z \,.
 \end{equation}
-
 Here, $D_{LS}$ is the dimensionless angular-diameter distance from the
 lens to the source, $D_L$ and $D_S$ are analogous.  Through the
 Poisson equation, we can connect the deflection field in
@@ -259,21 +261,18 @@ Equation@@latex:~@@\eqref{eq:thinlens} to the convergence as
 \begin{equation}\label{eq:deflection_field}%
   \bm\alpha(\bm\theta,\xi) = \nabla_{\bm\theta}\psi(\bm\theta,\xi) = 2\nabla_{\bm\theta}^{-1}\kappa(\bm\theta,\xi) \,.
 \end{equation}
-
 Angular positions on the source plane $\bm\beta$ are connected to the
 image plane positions $\bm\theta$ through the ray-tracing lens
 equation
 \begin{equation}\label{eq:lens_equation}%
   \bm\beta = \bm\theta - \bm\alpha \,.
 \end{equation}
-
 This translates to a mapping between image and source plane
 $L(\bm\theta, \bm\beta)$ that can be discretized in matrix form
 according to
 \begin{equation}%
   I(\bm\theta) = \int L(\bm\theta, \bm\beta) s(\bm\beta) \mathrm{d^{2}}\bm\beta\,,
 \end{equation}
-
 where $s(\bm\beta)$ source-brightness and $I(\bm\theta)$
 image-brightness distributions; see Appendix A and B in
 [[cite:&Treu2004]] for details on how to construct this matrix.
@@ -293,6 +292,7 @@ My proposed technique controls these optimizations using conditional,
 generative neural networks. There are various deep learning approaches
 which can deal with such problems, each with advantages and
 trade-offs:
+#+ATTR_LATEX: :options [leftmargin=*]
 - VAEs [[citep:&Kingma13]] are considered fast, and explicitly
   construct a latent representation of the input, but trade accuracy
   for the sake of prior matching.
@@ -324,12 +324,14 @@ has to be investigated.
 
 The project is organized in sequential work packages (WP) as follows:
 
-- WP1: gathering publicly available base datasets
+#+ATTR_LATEX: :options [leftmargin=*]
+- WP1: /gathering publicly available base datasets/
+  #+ATTR_LATEX: :options [leftmargin=*]
   1) source plane images of quasars (QSOs) from the Sloan Digital Sky
      Survey Quasar Catalog [[citep:&Schneider10;&Paris18]] and other
      sources [[citep:&Flesch21]]. In total, these catalogs have over a
      million classified type-I/II QSO entries, but for this project
-     only a small subsample around 1'000--10'000 at preferentially
+     only a small sub-sample around 1'000--10'000 at preferentially
      higher redshifts should suffice.
   2) lensing galaxy models (3D) from the /IllustrisTNG/
      [[citep:&Nelson18]] and /simba/ [[citep:&Dave19]] simulation
@@ -338,32 +340,43 @@ The project is organized in sequential work packages (WP) as follows:
      roughly 3-4 snapshots should suffice and fit on the available
      storage devices.
   3) the test datasets SL2S, SLACS, and BELLS (see
-     Section@@latex:~@@\ref{sec:goals} or
-     [[cite:&Gavazzi12;&Bolton2006;&Brownstein11]]) have a direct
-     comparison with corresponding existing lens modelling tools. Here,
-     only a small subset is needed corresponding to the samples tested
-     in the studies by
-     [[cite:&Adam22;&Denzel21;&Morningstar19;&Hezaveh17]].
-- WP2: building the training dataset
+     Section@@latex:~@@\ref{sec:goals}) have a direct comparison with
+     corresponding existing lens modelling tools. Here, only a small
+     subset is needed corresponding to the samples tested in the
+     studies by [[cite:&Adam22;&Denzel21;&Morningstar19;&Hezaveh17]].
+- WP2: /building the training dataset/
+  #+ATTR_LATEX: :options [leftmargin=*]
   - simulated lens images from the base datasets in WP1. These can be
-    simulated with existing, open-source software
-    (cf. [[cite:&Hezaveh17;&Birrer18]]), but as explained in
+    simulated with existing, open-source software (see
+    Section@@latex:~@@\ref{sec:research}), but as explained in
     Section@@latex:~@@\ref{sec:methods} could easily be re-implemented
     to run on the available fleet of NVIDIA A100 GPUs available to us.
-- WP3: testing and training deep learning architecture
+- WP3: /testing and training deep learning architecture/
+  #+ATTR_LATEX: :options [leftmargin=*]
   - this is the most labour-intensive WP and will be run in parallel
     on our GPU science cluster of 8 NVIDIA A100 GPUs. The network
     architectures mentioned in Section@@latex:~@@\ref{sec:methods} are
     readily available on GitHub, but in most cases will have to be
     adjusted to fit our particular data format.
-- WP4: integration into a lens modelling framework
-  - for this, the tools from WP2 can be repurposed
-- WP5: comparison and real-world testing
-  1) ...
-  2) ...
+- WP4: /integration into a lens modelling framework/
+  #+ATTR_LATEX: :options [leftmargin=*]
+  - the tools mentioned in WP2 can be repurposed for this
+- WP5: /benchmarking and real-world testing/
+  #+ATTR_LATEX: :options [leftmargin=*]
+  1) benchmarking the generative lens modelling performance on the
+     test dataset and comparison of the results with existing lens
+     modelling techniques mentioned above.
+  2) once proof-of-concept has been established, the generative lens
+     modelling scheme can be tested on new gravitational lens
+     observations in a "real-world" setting, such as lens candidates
+     from [[cite:&Huang21;&Storfer22]].
 
-**** Expected results & possible risks
+**** Expected results
 
+# The lens modelling scheme should be for the most part autonomous, and could be used to 
+
+
+**** Possible risks
 
 **** Potential impact
 
