@@ -209,11 +209,11 @@ scientific advancement across all disciplines.
 *** Project description
 
 
-**** Goals
+**** Goals & expected results
 <<sec:goals>>
 
 The main objectives of this research are:
-#+ATTR_LATEX: :options [leftmargin=*]
+#+ATTR_LATEX: :options [leftmargin=*, noitemsep]
 1) To develop a generative deep learning model that can accurately
    predict gravitational lensing deflection fields from 3D models of
    galaxies.
@@ -223,8 +223,8 @@ The main objectives of this research are:
      quasars, and projected galaxy models from publicly available
      hydrodynamical simulation suites
      [[citep:&Springel17;&Nelson18;&Dave19]].
-2) To embed the generative deep learning model in a Bayesian lens
-   modelling framework analogous to
+2) To embed the generative deep learning model in a (for the most part
+   autonomous) Bayesian lens modelling framework analogous to
    [[cite:&Adam22;&Denzel21;&Morningstar19;&Hezaveh17]] and compare
    its accuracy against existing lens modelling and source
    reconstruction techniques. Note that the proposed scheme will be
@@ -241,8 +241,8 @@ The main objectives of this research are:
    lens observations in a "real-world" setting, and to investigate the
    relative impact of 3D dark matter distributions, galaxy shape,
    orientation, galaxy formation scenarios, and other properties on
-   these observations.
-   
+   these observations.\footnote{This could also be considered part of a follow-up project.}
+
 **** Methods
 <<sec:methods>>
 Formally, the deflection field $\bm\alpha(\bm\theta, \xi)$ can be
@@ -292,7 +292,7 @@ My proposed technique controls these optimizations using conditional,
 generative neural networks. There are various deep learning approaches
 which can deal with such problems, each with advantages and
 trade-offs:
-#+ATTR_LATEX: :options [leftmargin=*]
+#+ATTR_LATEX: :options [leftmargin=*, noitemsep]
 - VAEs [[citep:&Kingma13]] are considered fast, and explicitly
   construct a latent representation of the input, but trade accuracy
   for the sake of prior matching.
@@ -324,7 +324,7 @@ has to be investigated.
 
 The project is organized in sequential work packages (WP) as follows:
 
-#+ATTR_LATEX: :options [leftmargin=*]
+#+ATTR_LATEX: :options [leftmargin=*, noitemsep]
 - WP1: /gathering publicly available base datasets/
   #+ATTR_LATEX: :options [leftmargin=*]
   1) source plane images of quasars (QSOs) from the Sloan Digital Sky
@@ -371,16 +371,40 @@ The project is organized in sequential work packages (WP) as follows:
      observations in a "real-world" setting, such as lens candidates
      from [[cite:&Huang21;&Storfer22]].
 
-**** Expected results
-
-# The lens modelling scheme should be for the most part autonomous, and could be used to 
-
 
 **** Possible risks
+
+The potential risks of this project mainly comprise of undesirable
+outcomes which either impact the model's autonomy or extend the
+project timeline due to additional work, but can be ameliorated:
+#+ATTR_LATEX: :options [leftmargin=*, noitemsep]
+- The principal idea of the proposed method relies on the degeneracy
+  problem in lens systems. While in theory there should be an infinite
+  amount of lens solutions to a particular observations, the selected
+  training dataset may not be large enough for the true data
+  distribution. In that case, the training dataset may need to be
+  reworked.
+- Previous attempts to integrate 3D point-cloud data into the
+  aforemention deep learning models have been met with challenges and
+  considerable trade-offs in efficiency at times. Poor choices in
+  architecture and model design could prevent the proposed technique
+  from being scalable for large datasets.
+- In addition, deep learning is often categorized as black-box model,
+  and it is necessary to take significant caution when presenting any
+  results from a deep generative model. To increase its trustworthiness,
+  well-established methods such as saliency maps, surrogate modelling,
+  or uncertainty estimation should be employed. Moreover, the deep
+  learning model should be designed for robustness against noise (and
+  adversarial examples). If these considerations are not sufficiently
+  addressed, the lens modelling community may not accept any results
+  from the method.
 
 **** Potential impact
 
 
+
+#+LATEX: \newpage
+** Bibliography
 
 # Bibliography ################################################################
 # [[bibliographystyle:plainnat][Bibliography style]]
