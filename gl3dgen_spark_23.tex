@@ -38,7 +38,7 @@
 \maketitle
 \vspace{-0.8in}
 \section*{Project summary}
-\label{sec:org7b43d9c}
+\label{sec:orgabc21c7}
 
 Gravitational lensing is a phenomenon that occurs when rays of light
 from a distant background source are deflected by the gravitational
@@ -101,10 +101,10 @@ with big data efficiently.
 
 \newpage
 \section*{Project plan}
-\label{sec:org116f60c}
+\label{sec:orgd441f3a}
 
 \subsection*{State of research}
-\label{sec:orgf862fbb}
+\label{sec:orged6ac12}
 
 Although gravitational lensing is often regarded as an optical
 illusion that shows the same source in multiple images, lensing
@@ -165,7 +165,7 @@ observed data. This fact manifests as parameter degeneracies when
 interpreting observations as discussed by
 \cite{Saha00,Saha06,Schneider14,Birrer21}.  An often ignored issue
 with parametric models is that they assume to cover enough of the
-solution space to encompass the "truth".  Congizant of this fact,
+solution space to encompass the "truth".  Cognizant of this fact,
 free-form lens modelling, as presented by \citep{Saha04}, uses an
 over-parameterization trick to sample a wide range of solution
 space. Despite, this technique is not efficient at higher resolutions
@@ -195,11 +195,11 @@ sampled from hydrodynamical simulations. \\[0pt]
 While there were previous attempts at harnessing realistic galaxy
 models from hydrodynamical simulations \citep[see][]{Adam22,Denzel21},
 these studies used predetermined 2D projections at fixed orientations
-of the galaxy. The novely in this proposal lies in the direct
+of the galaxy. The novelty in this proposal lies in the direct
 processing of the 3D data from such galaxy models as input to a deep
 neural network architecture, which essentially serves as a data
 augmentation method. This approach allows for an increase in possible
-lens model fits due to the multipicity of orientations from which a
+lens model fits due to the multiplicity of orientations from which a
 galaxy model can be projected onto a 2D plane (as shown by these
 previous studies).
 
@@ -216,21 +216,21 @@ they are fundamentally unstructured data
 subsequent studies built upon this idea
 \citep[see][]{Qi17,BenShabat17,Klokov17,Kaul21,AbadRocamora22}. \\[0pt]
 At the same time, recent studies by \cite{Quessard20,Keurti22}
-demonstate the feasibility of efficiently learning spatial group
+demonstrate the feasibility of efficiently learning spatial group
 operators, such as rotation, through regularization and mapping of the
 latent space with neural networks.
 
 Integrating computer vision deep learning techniques with
-astrophysical data within the context of gravitational lesning poses a
+astrophysical data within the context of gravitational lensing poses a
 significant challenge, but holds the potential for substantial
 scientific advancement across all disciplines.
 
 \subsection*{Project description}
-\label{sec:org70898b0}
+\label{sec:orgf70a1b2}
 
 
 \subsubsection*{Goals}
-\label{sec:orgce588bd}
+\label{sec:org128736e}
 
 The main objectives of this research are:
 
@@ -241,17 +241,18 @@ galaxies.
 \begin{itemize}
 \item To this end, we construct a custom training dataset of
 ray-traced, synthetic lenses from observed source images, such as
-quasars, and projected galaxy models from publicly avaiable
+quasars, and projected galaxy models from publicly available
 hydrodynamical simulation suites
 \citep{Springel17,Nelson18,Dave19}.
 \end{itemize}
 \item To embed the generative deep learning model in a Bayesian lens
 modelling framework analogous to
-\cite{Adam22,Denzel21,Morningstar19} and compare its
-performace and accuracy against existing lens modelling and source
-reconstruction techniques. Note that the proposed scheme will be
-able to draw conclusion on the 3D structure of lenses, which is a
-novel capability no other existing lens modelling tool possesses.
+\cite{Adam22,Denzel21,Morningstar19,Hezaveh17} and compare
+its performance and accuracy against existing lens modelling and
+source reconstruction techniques. Note that the proposed scheme
+will be able to draw conclusion on the 3D structure of lenses,
+which is a novel capability no other existing lens modelling tool
+possesses.
 \begin{itemize}
 \item This test can be performed with corresponding gravitational lens
 datasets from surveys such as the Strong Lensing Legacy Survey
@@ -268,11 +269,11 @@ scenarios, and other properties on these observations.
 \end{enumerate}
 
 \subsubsection*{Methods}
-\label{sec:orge04a29f}
+\label{sec:orgbc0221a}
 
 Formally, the deflection field \(\bm\alpha(\bm\theta, \xi)\) can be
 expressed through a given angle on the observer's sky \(\bm\theta\), and
-a location and orientation \(\xi\) of the 3D density \(\rho(\bm\theta,z)\). The
+an orientation \(\xi\) of the 3D density \(\rho(\bm\theta,z)\). The
 convergence map (that is, the lensing mass distribution in
 dimensionless form) is given by the usual projection of the 3D mass
 density as
@@ -283,26 +284,92 @@ density as
 \end{equation}
 
 Here, \(D_{LS}\) is the dimensionless angular-diameter distance from the
-lens to the source, \(D_L\) and \(D_S\) are analogous.  Finally, through
-Poisson's equation we can connect the deflection field to the convergence as
+lens to the source, \(D_L\) and \(D_S\) are analogous.  Through the
+Poisson equation, we can connect the deflection field in
+Equation~\eqref{eq:thinlens} to the convergence as
 
 \begin{equation}
-  \alpha(\bm\theta,\xi) = \nabla_{\bm\theta}\psi(\bm\theta,\xi) = 2\nabla_{\bm\theta}^{-1}\kappa(\bm\theta,\xi) \,.
+\label{eq:deflection_field}
+  \bm\alpha(\bm\theta,\xi) = \nabla_{\bm\theta}\psi(\bm\theta,\xi) = 2\nabla_{\bm\theta}^{-1}\kappa(\bm\theta,\xi) \,.
 \end{equation}
 
+Angular positions on the source plane \(\bm\beta\) are connected to the
+image plane positions \(\bm\theta\) through the ray-tracing lens
+equation
+
+\begin{equation}
+\label{eq:lens_equation}
+  \bm\beta = \bm\theta - \bm\alpha \,.
+\end{equation}
+
+There is a mapping between image and source plane \(L(\bm\theta,
+\bm\beta)\) that can be discretized in matrix form according to
+
+\begin{equation}
+  I(\bm\theta) = \int L(\bm\theta, \bm\beta) s(\bm\beta) \mathrm{d^{2}}\bm\beta\,,
+\end{equation}
+
+where \(s(\bm\beta)\) source-brightness and \(I(\bm\theta)\)
+image-brightness distributions; see Appendix A and B in
+\cite{Treu2004} for details on how to construct this matrix.
+
+Forward modelling these equations is trivial and can be accomplished
+with well-established algorithms such as Fast Fourier Transform,
+multi-grid, or iterative relaxation methods. \\[0pt]
+Solving the inverse problem is considerably more challenging however,
+and requires convex optimization involving repeated, computationally
+expensive operations such as matrix inversions. This task is further
+complicated if the orientation of the 3D galaxy density distribution
+in
+Equations~\eqref{eq:deflection_field}~\&~\eqref{eq:lens_equation}
+has to be marginalized.
+
+My proposed technique controls these optimizations using conditional,
+generative neural networks. There are various deep learning approaches
+which can deal with such problems, each with advantages and
+trade-offs:
+\begin{itemize}
+\item VAEs \citep{Kingma13} are considered fast, and explicitly
+construct a latent representation of the input, but trade accuracy
+for the sake of prior matching.
+\item Normalizing flows \citep{Rezende15} parametrize a diffeomorphism
+with a neural network and approximate likelihoods from the
+input. Since diffeomorphisms are bijective, the mapping from input
+to output is invertible, but is typically expensive in
+high-dimensional problems (such as image mappings from 3D models).
+\item GANs \citep{Goodfellow14} play a minimax game between a generator
+network and a discriminator network critiques the generator during
+training. They tend to be fast during inference and generate
+high-quality outputs, but are prone to the issue of mode collapse.
+\item Autoregressive models \citep{Parmar18} have been shown to consistently outperform
+other types of models when it comes to accuracy, but tend to be
+extremely slow, especially during inference.
+\item Diffusion models \citep{Sohl-Dickstein15,Ho20} are latent
+variable models whose variables keep the dimensionality of the input
+data. Inspired by the physical effect of the same denomination, the
+approximate posterior is fixed to a Markov chain with Gaussian noise
+transitions. These models have recently shown great success in
+generating high-quality samples, but similar to autoregressive
+models are slow in comparison to GANs or VAEs.
+\end{itemize}
+
+The choice of deep learning architecture and method will ultimately
+depend on the accuracy and scalability to the lensing galaxy data, and
+has to be investigated.
+
 \subsubsection*{Approach}
-\label{sec:orgfef21cf}
+\label{sec:org8e8ff5e}
 
 We construct a custom training dataset\ldots{}
 The possibility of repurposing and integrating
 existing datasets as in \cite{Adam22} will also be explored.
 
 \subsubsection*{Expected results}
-\label{sec:org10e88c9}
+\label{sec:orgf57e5c2}
 \subsubsection*{Possible risks}
-\label{sec:org011fab6}
+\label{sec:org8d97a3b}
 \subsubsection*{Potential impact}
-\label{sec:org68993e3}
+\label{sec:orgec04fd5}
 
 
 
