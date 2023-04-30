@@ -37,8 +37,8 @@
 
 \maketitle
 \vspace{-0.8in}
-\section*{Project summary}
-\label{sec:orgabc21c7}
+\section{Project summary}
+\label{sec:org27ed820}
 
 Gravitational lensing is a phenomenon that occurs when rays of light
 from a distant background source are deflected by the gravitational
@@ -100,11 +100,11 @@ with big data efficiently.
 
 
 \newpage
-\section*{Project plan}
-\label{sec:orgd441f3a}
+\section{Project plan}
+\label{sec:org2749304}
 
-\subsection*{State of research}
-\label{sec:orged6ac12}
+\subsection{State of research}
+\label{sec:org05576f9}
 
 Although gravitational lensing is often regarded as an optical
 illusion that shows the same source in multiple images, lensing
@@ -225,12 +225,13 @@ astrophysical data within the context of gravitational lensing poses a
 significant challenge, but holds the potential for substantial
 scientific advancement across all disciplines.
 
-\subsection*{Project description}
-\label{sec:orgf70a1b2}
+\subsection{Project description}
+\label{sec:org1e9192f}
 
 
-\subsubsection*{Goals}
-\label{sec:org128736e}
+\subsubsection{Goals}
+\label{sec:org7fb55e4}
+\label{sec:goals}
 
 The main objectives of this research are:
 
@@ -268,18 +269,16 @@ distributions, galaxy shape, orientation, galaxy formation
 scenarios, and other properties on these observations.
 \end{enumerate}
 
-\subsubsection*{Methods}
-\label{sec:orgbc0221a}
-
+\subsubsection{Methods}
+\label{sec:org1b680f1}
+\label{sec:methods}
 Formally, the deflection field \(\bm\alpha(\bm\theta, \xi)\) can be
 expressed through a given angle on the observer's sky \(\bm\theta\), and
 an orientation \(\xi\) of the 3D density \(\rho(\bm\theta,z)\). The
 convergence map (that is, the lensing mass distribution in
 dimensionless form) is given by the usual projection of the 3D mass
 density as
-
-\begin{equation}
-\label{eq:thinlens}
+\begin{equation}\label{eq:thinlens}%
   \kappa(\bm\theta,\xi) = \frac{4\pi G}{cH_0}\, \frac{D_\mathrm{LS}D_\mathrm{L}}{D_\mathrm{S}} \int \rho(\bm\theta,\xi,z)\,\mathrm{d}z \,.
 \end{equation}
 
@@ -287,25 +286,21 @@ Here, \(D_{LS}\) is the dimensionless angular-diameter distance from the
 lens to the source, \(D_L\) and \(D_S\) are analogous.  Through the
 Poisson equation, we can connect the deflection field in
 Equation~\eqref{eq:thinlens} to the convergence as
-
-\begin{equation}
-\label{eq:deflection_field}
+\begin{equation}\label{eq:deflection_field}%
   \bm\alpha(\bm\theta,\xi) = \nabla_{\bm\theta}\psi(\bm\theta,\xi) = 2\nabla_{\bm\theta}^{-1}\kappa(\bm\theta,\xi) \,.
 \end{equation}
 
 Angular positions on the source plane \(\bm\beta\) are connected to the
 image plane positions \(\bm\theta\) through the ray-tracing lens
 equation
-
-\begin{equation}
-\label{eq:lens_equation}
+\begin{equation}\label{eq:lens_equation}%
   \bm\beta = \bm\theta - \bm\alpha \,.
 \end{equation}
 
-There is a mapping between image and source plane \(L(\bm\theta,
-\bm\beta)\) that can be discretized in matrix form according to
-
-\begin{equation}
+This translates to a mapping between image and source plane
+\(L(\bm\theta, \bm\beta)\) that can be discretized in matrix form
+according to
+\begin{equation}%
   I(\bm\theta) = \int L(\bm\theta, \bm\beta) s(\bm\beta) \mathrm{d^{2}}\bm\beta\,,
 \end{equation}
 
@@ -357,19 +352,67 @@ The choice of deep learning architecture and method will ultimately
 depend on the accuracy and scalability to the lensing galaxy data, and
 has to be investigated.
 
-\subsubsection*{Approach}
-\label{sec:org8e8ff5e}
+\subsubsection{Approach}
+\label{sec:org7a12cf9}
 
-We construct a custom training dataset\ldots{}
-The possibility of repurposing and integrating
-existing datasets as in \cite{Adam22} will also be explored.
+The project is organized in sequential work packages (WP) as follows:
 
-\subsubsection*{Expected results}
-\label{sec:orgf57e5c2}
-\subsubsection*{Possible risks}
-\label{sec:org8d97a3b}
-\subsubsection*{Potential impact}
-\label{sec:orgec04fd5}
+\begin{itemize}
+\item WP1: gathering publicly available base datasets
+\begin{enumerate}
+\item source plane images of quasars (QSOs) from the Sloan Digital Sky
+Survey Quasar Catalog \citep{Schneider10,Paris18} and other
+sources \citep{Flesch21}. In total, these catalogs have over a
+million classified type-I/II QSO entries, but for this project
+only a small subsample around 1'000--10'000 at preferentially
+higher redshifts should suffice.
+\item lensing galaxy models (3D) from the \emph{IllustrisTNG}
+\citep{Nelson18} and \emph{simba} \citep{Dave19} simulation
+suites.  These are available as raw HDF5 data at up to 2.7 TB per
+snapshot containing roughly 3000 appropriate galaxy models. Again,
+roughly 3-4 snapshots should suffice and fit on the available
+storage devices.
+\item the test datasets SL2S, SLACS, and BELLS (see
+Section~\ref{sec:goals} or
+\cite{Gavazzi12,Bolton2006,Brownstein11}) have a direct
+comparison with corresponding existing lens modelling tools. Here,
+only a small subset is needed corresponding to the samples tested
+in the studies by
+\cite{Adam22,Denzel21,Morningstar19,Hezaveh17}.
+\end{enumerate}
+\item WP2: building the training dataset
+\begin{itemize}
+\item simulated lens images from the base datasets in WP1. These can be
+simulated with existing, open-source software
+(cf. \cite{Hezaveh17,Birrer18}), but as explained in
+Section~\ref{sec:methods} could easily be re-implemented
+to run on the available fleet of NVIDIA A100 GPUs available to us.
+\end{itemize}
+\item WP3: testing and training deep learning architecture
+\begin{itemize}
+\item this is the most labour-intensive WP and will be run in parallel
+on our GPU science cluster of 8 NVIDIA A100 GPUs. The network
+architectures mentioned in Section~\ref{sec:methods} are
+readily available on GitHub, but in most cases will have to be
+adjusted to fit our particular data format.
+\end{itemize}
+\item WP4: integration into a lens modelling framework
+\begin{itemize}
+\item for this, the tools from WP2 can be repurposed
+\end{itemize}
+\item WP5: comparison and real-world testing
+\begin{enumerate}
+\item \ldots{}
+\item \ldots{}
+\end{enumerate}
+\end{itemize}
+
+\subsubsection{Expected results \& possible risks}
+\label{sec:org58e0732}
+
+
+\subsubsection{Potential impact}
+\label{sec:org5358d99}
 
 
 

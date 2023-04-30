@@ -2,7 +2,7 @@
 #+TITLE: Deep generative modelling for gravitational lensing fields from 3D models of galaxies
 # Generating gravitational lensing deflection fields from 3D models of galaxies using deep learning for mock observations
 #+DATE: 2023-04-26 Wed
-#+OPTIONS: author:nil title:t date:nil timestamp:nil toc:nil num:nil \n:nil
+#+OPTIONS: author:nil title:t date:nil timestamp:nil toc:nil num:t \n:nil
 #+LATEX_CLASS_OPTIONS: [a4paper,10pt]
 #+LATEX_HEADER: \usepackage[margin=1.2in]{geometry}
 #+LATEX_HEADER: \newgeometry{top=1in,bottom=1in,right=1.25in,left=1.25in}
@@ -208,6 +208,7 @@ scientific advancement across all disciplines.
 
 
 **** Goals
+<<sec:goals>>
 
 The main objectives of this research are:
 
@@ -240,16 +241,14 @@ The main objectives of this research are:
    scenarios, and other properties on these observations.
    
 **** Methods
-
+<<sec:methods>>
 Formally, the deflection field $\bm\alpha(\bm\theta, \xi)$ can be
 expressed through a given angle on the observer's sky $\bm\theta$, and
 an orientation $\xi$ of the 3D density $\rho(\bm\theta,z)$. The
 convergence map (that is, the lensing mass distribution in
 dimensionless form) is given by the usual projection of the 3D mass
 density as
-
-\begin{equation}
-\label{eq:thinlens}
+\begin{equation}\label{eq:thinlens}%
   \kappa(\bm\theta,\xi) = \frac{4\pi G}{cH_0}\, \frac{D_\mathrm{LS}D_\mathrm{L}}{D_\mathrm{S}} \int \rho(\bm\theta,\xi,z)\,\mathrm{d}z \,.
 \end{equation}
 
@@ -257,25 +256,21 @@ Here, $D_{LS}$ is the dimensionless angular-diameter distance from the
 lens to the source, $D_L$ and $D_S$ are analogous.  Through the
 Poisson equation, we can connect the deflection field in
 Equation@@latex:~@@\eqref{eq:thinlens} to the convergence as
-
-\begin{equation}
-\label{eq:deflection_field}
+\begin{equation}\label{eq:deflection_field}%
   \bm\alpha(\bm\theta,\xi) = \nabla_{\bm\theta}\psi(\bm\theta,\xi) = 2\nabla_{\bm\theta}^{-1}\kappa(\bm\theta,\xi) \,.
 \end{equation}
 
 Angular positions on the source plane $\bm\beta$ are connected to the
 image plane positions $\bm\theta$ through the ray-tracing lens
 equation
-
-\begin{equation}
-\label{eq:lens_equation}
+\begin{equation}\label{eq:lens_equation}%
   \bm\beta = \bm\theta - \bm\alpha \,.
 \end{equation}
 
-There is a mapping between image and source plane $L(\bm\theta,
-\bm\beta)$ that can be discretized in matrix form according to
-
-\begin{equation}
+This translates to a mapping between image and source plane
+$L(\bm\theta, \bm\beta)$ that can be discretized in matrix form
+according to
+\begin{equation}%
   I(\bm\theta) = \int L(\bm\theta, \bm\beta) s(\bm\beta) \mathrm{d^{2}}\bm\beta\,,
 \end{equation}
 
@@ -327,12 +322,49 @@ has to be investigated.
 
 **** Approach
 
-We construct a custom training dataset...
-The possibility of repurposing and integrating
-existing datasets as in [[cite:&Adam22]] will also be explored.
+The project is organized in sequential work packages (WP) as follows:
 
-**** Expected results
-**** Possible risks
+- WP1: gathering publicly available base datasets
+  1) source plane images of quasars (QSOs) from the Sloan Digital Sky
+     Survey Quasar Catalog [[citep:&Schneider10;&Paris18]] and other
+     sources [[citep:&Flesch21]]. In total, these catalogs have over a
+     million classified type-I/II QSO entries, but for this project
+     only a small subsample around 1'000--10'000 at preferentially
+     higher redshifts should suffice.
+  2) lensing galaxy models (3D) from the /IllustrisTNG/
+     [[citep:&Nelson18]] and /simba/ [[citep:&Dave19]] simulation
+     suites.  These are available as raw HDF5 data at up to 2.7 TB per
+     snapshot containing roughly 3000 appropriate galaxy models. Again,
+     roughly 3-4 snapshots should suffice and fit on the available
+     storage devices.
+  3) the test datasets SL2S, SLACS, and BELLS (see
+     Section@@latex:~@@\ref{sec:goals} or
+     [[cite:&Gavazzi12;&Bolton2006;&Brownstein11]]) have a direct
+     comparison with corresponding existing lens modelling tools. Here,
+     only a small subset is needed corresponding to the samples tested
+     in the studies by
+     [[cite:&Adam22;&Denzel21;&Morningstar19;&Hezaveh17]].
+- WP2: building the training dataset
+  - simulated lens images from the base datasets in WP1. These can be
+    simulated with existing, open-source software
+    (cf. [[cite:&Hezaveh17;&Birrer18]]), but as explained in
+    Section@@latex:~@@\ref{sec:methods} could easily be re-implemented
+    to run on the available fleet of NVIDIA A100 GPUs available to us.
+- WP3: testing and training deep learning architecture
+  - this is the most labour-intensive WP and will be run in parallel
+    on our GPU science cluster of 8 NVIDIA A100 GPUs. The network
+    architectures mentioned in Section@@latex:~@@\ref{sec:methods} are
+    readily available on GitHub, but in most cases will have to be
+    adjusted to fit our particular data format.
+- WP4: integration into a lens modelling framework
+  - for this, the tools from WP2 can be repurposed
+- WP5: comparison and real-world testing
+  1) ...
+  2) ...
+
+**** Expected results & possible risks
+
+
 **** Potential impact
 
 
