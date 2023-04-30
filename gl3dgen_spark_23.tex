@@ -38,7 +38,7 @@
 \maketitle
 \vspace{-0.8in}
 \section*{Project summary}
-\label{sec:orgbaf0205}
+\label{sec:org34b26f5}
 
 Gravitational lensing is a phenomenon that occurs when rays of light
 from a distant background source are deflected by the gravitational
@@ -83,11 +83,11 @@ within a Bayesian framework.
 Lens modelling is inherently considered as a (degenerate) 2D inverse
 problem. The novelty of this project consists of introducing 3D models
 as direct input, which requires methods able to cover a broad range in
-solution space due to the additional degeneracy introduced
-thereby. Conventional modelling methods are insufficient due to the
-typically low complexity of their models whereas deep learning methods
-increase the model complexity with a high number of parameters, thus
-able to span a wider range in solution space.
+solution space due to the degeneracy introduced thereby. Conventional
+modelling methods are insufficient due to the typically low complexity
+of their models whereas deep learning methods increase the model
+complexity with a high number of parameters, thus able to span a wider
+range in solution space.
 
 As of today, roughly 10\textsuperscript{3} lenses have been discovered, only a fraction
 of those properly analysed. Moreover, it is anticipated that the
@@ -101,10 +101,10 @@ with big data efficiently.
 
 \newpage
 \section*{Project plan}
-\label{sec:org50f3a28}
+\label{sec:org9a2b44f}
 
 \subsection*{State of research}
-\label{sec:org43e2fd3}
+\label{sec:org048c9c6}
 
 Although gravitational lensing is often regarded as an optical
 illusion that shows the same source in multiple images, lensing
@@ -163,36 +163,71 @@ lensing galaxy's shape.
 modelling is that numerous mass distributions could plausibly explain
 observed data. This fact manifests as parameter degeneracies when
 interpreting observations as discussed by
-\cite{Saha00,Saha06,Schneider14,Birrer21}.  An often ignored
-issue with parametric models is that they assume to cover enough of
-the solution space to encompass the "truth".  Congizant of this fact,
+\cite{Saha00,Saha06,Schneider14,Birrer21}.  An often ignored issue
+with parametric models is that they assume to cover enough of the
+solution space to encompass the "truth".  Congizant of this fact,
 free-form lens modelling, as presented by \citep{Saha04}, uses an
 over-parameterization trick to sample a wide range of solution
-space. Despite this, the majority of fits are still not considered
-realistic or physically viable.
+space. Despite, this technique is not efficient at higher resolutions
+and the majority of fits are still not considered realistic or
+physically viable.
 
 All conventional lens modelling techniques rely on recipes which aim
 to efficiently reproduce shapes and slopes of galaxies, as they are
 usually observed. These methods therefore suppress or even completely
 ignore the evolutionary processes of galaxies and the physical
-properties which form and drive them. In contrast, cosmological
-hydrodynamical simulations have made significant strides in recent
-years, incorporating semi-analytical models which simulate star
-formation and feedback effects at small scales, enabling exploration
-of various galaxy-formation scenarios.
+properties which form and drive them \cite[cf.][]{Naab17}. In contrast,
+cosmological hydrodynamical simulations have made significant strides
+in recent years, incorporating semi-analytical models which simulate
+star formation and feedback effects at small scales, enabling
+exploration of various galaxy-formation scenarios
+\citep[e.g.][]{Pillepich17,Vogelsberger14}.
 
-Integrating 3D galaxy models to lens modelling, doesn't alleviate the
-already difficult computational and algorithmic challenge. However, it has been shown that deep learning
+Despite the apparent benefits of directly integrating these galaxy
+models to lens modelling, the already difficult computational and
+algorithmic challenges persist. However, it has been shown that deep
+learning neural networks are universal approximators
+\citep{Hornik89,Kratsios20}, and often outperform conventional,
+computationally complex operations in efficiency and accuracy. Hence,
+I propose a novel data-driven deep learning approach to lens modelling
+that generates deflection fields directly from 3D galaxy models
+sampled from hydrodynamical simulations. \\[0pt]
+While there were previous attempts at harnessing realistic galaxy
+models from hydrodynamical simulations \citep[see][]{Adam22,Denzel21},
+these studies used predetermined 2D projections at fixed orientations
+of the galaxy. The novely in this proposal lies in the direct
+processing of the 3D data from such galaxy models as input to a deep
+neural network architecture, which essentially serves as a data
+augmentation method. This approach allows for an increase in possible
+lens model fits due to the multipicity of orientations from which a
+galaxy model can be projected onto a 2D plane (as shown by these
+previous studies).
 
-\begin{itemize}
-\item in comes deep learning\ldots{}
-\item deep learning architectures
-\item novelty distinguishing from the rest
-\end{itemize}
+In astrophysical, hydrodynamical simulations, the prevalent data
+format is called \emph{smooth-particle hydrodynamics}
+\citep{Gingold77,Lucy77,Monaghan92}. Basically, the same data
+type is referred to as \emph{point clouds} in the computer vision
+field. They are most commonly produced by LiDARs, 3D scanners, or
+multi-channel depth camera systems. Parsing and knowledge extraction
+from point cloud data is considered an exceptionally difficult task as
+they are fundamentally unstructured data
+\citep[cf.][]{Vinyals2015,Armeni16,Rufus20,Zhang15,Nuechter07,Rusinkiewicz00}.
+\cite{Qi16} pioneered deep learning with 3D point cloud data, and
+subsequent studies built upon this idea
+\citep[see][]{Qi17,BenShabat17,Klokov17,Kaul21,AbadRocamora22}. \\[0pt]
+At the same time, recent studies by \cite{Quessard20,Keurti22}
+demonstate the feasibility of efficiently learning spatial group
+operators, such as rotation, through regularization and mapping of the
+latent space with neural networks.
+
+Integrating computer vision deep learning techniques with
+astrophysical data within the context of gravitational lesning poses a
+significant challenge, but holds the potential for substantial
+scientific advancement across all disciplines.
 
 
 \subsection*{Project description}
-\label{sec:org0d5f08b}
+\label{sec:orgc0f2580}
 
 \begin{itemize}
 \item Goals
@@ -229,7 +264,7 @@ Poisson's equation we can connect the deflection field to the convergence as
 
 
 \subsection*{Potential impact}
-\label{sec:orgeed4ca2}
+\label{sec:org0dd416f}
 
 
 
