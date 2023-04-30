@@ -49,7 +49,7 @@ In this research proposal, I outline the usage of generative deep
 learning methods to produce strongly lensing deflection fields of 3D
 galaxy models from existing hydrodynamical simulation suites for the
 purpose of creating mock observations, observational fits, and
-corresponding source reconstructions. Specifically, I will explore
+corresponding source reconstructions. Specifically, we will explore
 various state-of-the-art deep learning architectures, including
 diffusion models, flow-based models, generative adversarial networks
 (GANs), and variational autoencoders (VAEs) to develop a model that
@@ -160,7 +160,7 @@ cosmological hydrodynamical simulations have made significant strides
 in recent years, incorporating semi-analytical models which simulate
 star formation and feedback effects at small scales, enabling
 exploration of various galaxy-formation scenarios
-[[citep:e.g.&Pillepich17;&Vogelsberger14]].
+[[citep:e.g.&Pillepich17;&Weinberger16;&Vogelsberger14]].
 
 Despite the apparent benefits of directly integrating these galaxy
 models to lens modelling, the already difficult computational and
@@ -204,16 +204,45 @@ astrophysical data within the context of gravitational lesning poses a
 significant challenge, but holds the potential for substantial
 scientific advancement across all disciplines.
 
-
 *** Project description
 
-- Goals
-  
-- Methods
+
+**** Goals
+
+The main objectives of this research are:
+
+1) To develop a generative deep learning model that can accurately
+   predict gravitational lensing deflection fields from 3D models of
+   galaxies.
+   - To this end, we construct a custom training dataset of
+     ray-traced, synthetic lenses from observed source images, such as
+     quasars, and projected galaxy models from publicly avaiable
+     hydrodynamical simulation suites
+     [[citep:&Springel17;&Nelson18;&Dave19]].
+2) To embed the generative deep learning model in a Bayesian lens
+   modelling framework analogous to
+   [[cite:&Adam22;&Denzel21;&Morningstar19]] and compare its
+   performace and accuracy against existing lens modelling and source
+   reconstruction techniques. Note that the proposed scheme will be
+   able to draw conclusion on the 3D structure of lenses, which is a
+   novel capability no other existing lens modelling tool possesses.
+   - This test can be performed with corresponding gravitational lens
+     datasets from surveys such as the Strong Lensing Legacy Survey
+     [[citep:SL2S:&Gavazzi12;&Sonnenfeld15]], the Sloan Lens ACS
+     Survey [[citep:SLACS:&Bolton2006;&Shu17]], or the Baryon
+     Oscillation Spectroscopic Survey (BOSS) Emission-Line Lens Survey
+     [[citep:BELLS:&Brownstein11;&Shu2016]].
+3) To test the generative lens modelling scheme (once its performance
+   is tested) on new gravitational lens observations in a "real-world"
+   setting, and to investigate the relative impact of 3D dark matter
+   distributions, galaxy shape, orientation, galaxy formation
+   scenarios, and other properties on these observations.
+   
+**** Methods
 
 Formally, the deflection field $\bm\alpha(\bm\theta, \xi)$ can be
 expressed through a given angle on the observer's sky $\bm\theta$, and
-a location and orientation of the 3D density $\rho(\bm\theta,z)$. The
+a location and orientation $\xi$ of the 3D density $\rho(\bm\theta,z)$. The
 convergence map (that is, the lensing mass distribution in
 dimensionless form) is given by the usual projection of the 3D mass
 density as
@@ -231,13 +260,15 @@ Poisson's equation we can connect the deflection field to the convergence as
   \alpha(\bm\theta,\xi) = \nabla_{\bm\theta}\psi(\bm\theta,\xi) = 2\nabla_{\bm\theta}^{-1}\kappa(\bm\theta,\xi) \,.
 \end{equation}
 
-  
-- Approach
-- Expected results
-- Possible risks
+**** Approach
 
+We construct a custom training dataset...
+The possibility of repurposing and integrating
+existing datasets as in [[cite:&Adam22]] will also be explored.
 
-*** Potential impact
+**** Expected results
+**** Possible risks
+**** Potential impact
 
 
 
