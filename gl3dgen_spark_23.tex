@@ -11,8 +11,8 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\usepackage[margin=1.2in]{geometry}
-\newgeometry{top=1in,bottom=1in,right=1.25in,left=1.25in}
+\usepackage[margin=1.0in]{geometry}
+\newgeometry{top=1in,bottom=1in,right=1.125in,left=1.125in}
 \usepackage{setspace}
 \onehalfspacing
 \usepackage{titling}
@@ -39,7 +39,7 @@
 \maketitle
 \vspace{-0.8in}
 \section{Project summary}
-\label{sec:orgf958847}
+\label{sec:org618a3a6}
 
 Gravitational lensing is a phenomenon that occurs when rays of light
 from a distant background source are deflected by the gravitational
@@ -102,10 +102,10 @@ with big data efficiently.
 
 \newpage
 \section{Project plan}
-\label{sec:orgea607eb}
+\label{sec:org06af9f0}
 
 \subsection{State of research}
-\label{sec:org8b48dcb}
+\label{sec:orgdce6f22}
 \label{sec:research}
 
 Although gravitational lensing is often regarded as an optical
@@ -205,7 +205,7 @@ lens model fits due to the multiplicity of orientations from which a
 galaxy model can be projected onto a 2D plane (as shown by these
 previous studies).
 
-In astrophysical, hydrodynamical simulations, the prevalent data
+In astrophysical, hydrodynamical simulations, the commonly-used data
 format is called \emph{smooth-particle hydrodynamics}
 \citep{Gingold77,Lucy77,Monaghan92}. Basically, the same data
 type is referred to as \emph{point clouds} in the computer vision
@@ -228,33 +228,35 @@ significant challenge, but holds the potential for substantial
 scientific advancement across all disciplines.
 
 \subsection{Project description}
-\label{sec:org604ea5a}
+\label{sec:orgf496503}
 
 
 \subsubsection{Goals \& expected results}
-\label{sec:org154d064}
+\label{sec:org90eab6c}
 \label{sec:goals}
 
 The main objectives of this research are:
 \begin{enumerate}[leftmargin=*, noitemsep]
-\item To develop a generative deep learning model that can accurately
-predict gravitational lensing deflection fields from 3D models of
-galaxies.
+\item To develop a generative deep learning model that can efficiently
+and accurately predict gravitational lensing deflection fields from
+a 3D galaxy model, optimizing for its orientation.
 \begin{itemize}[leftmargin=*]
 \item To this end, we construct a custom training dataset of
 ray-traced, synthetic lenses from observed source images, such as
-quasars, and projected galaxy models from publicly available
-hydrodynamical simulation suites
+quasars, and manually projected galaxy models from publicly
+available hydrodynamical simulation suites
 \citep{Springel17,Nelson18,Dave19}.
 \end{itemize}
 \item To embed the generative deep learning model in a (for the most part
 autonomous) Bayesian lens modelling framework analogous to
-\cite{Adam22,Denzel21,Morningstar19,Hezaveh17} and compare
-its accuracy against existing lens modelling and source
-reconstruction techniques. Note that the proposed scheme will be
-able to draw conclusion on the 3D structure of lenses, which is a
-novel capability no other existing lens modelling tool possesses.
+\cite{Adam22,Denzel21,Morningstar19,Hezaveh17} to fit
+observations for galaxy models.
 \begin{itemize}[leftmargin=*]
+\item We will compare its accuracy and efficiency against existing lens
+modelling and source reconstruction techniques. Note that the
+proposed scheme will be able to directly draw conclusion on the
+3D structure of lenses, which is a novel capability no other
+existing lens modelling tool possesses.
 \item This test can be performed with corresponding gravitational lens
 datasets from surveys such as the Strong Lensing Legacy Survey
 \citep[SL2S:][]{Gavazzi12,Sonnenfeld15}, the Sloan Lens ACS
@@ -262,15 +264,15 @@ Survey \citep[SLACS:][]{Bolton2006,Shu17}, or the Baryon
 Oscillation Spectroscopic Survey (BOSS) Emission-Line Lens Survey
 \citep[BELLS:][]{Brownstein11,Shu2016}.
 \end{itemize}
-\item To test the generative lens modelling scheme on new gravitational
-lens observations in a "real-world" setting, and to investigate the
-relative impact of 3D dark matter distributions, galaxy shape,
-orientation, galaxy formation scenarios, and other properties on
-these observations.\footnote{This could also be considered part of a follow-up project.}
+\item To test the generative lens modelling scheme on new unseen
+gravitational lens observations in a "real-world" setting, and to
+investigate the relative impact of 3D dark matter distributions,
+galaxy shape, orientation, galaxy formation scenarios, and other
+properties on these observations.\footnote{This could also be considered part of a follow-up project.}
 \end{enumerate}
 
 \subsubsection{Methods}
-\label{sec:org4c40d1f}
+\label{sec:orgdf4d372}
 \label{sec:methods}
 Formally, the deflection field \(\bm\alpha(\bm\theta, \xi)\) can be
 expressed through a given angle on the observer's sky \(\bm\theta\), and
@@ -349,9 +351,10 @@ depend on the accuracy and scalability to the lensing galaxy data, and
 has to be investigated.
 
 \subsubsection{Approach}
-\label{sec:org854f2a6}
+\label{sec:orgdcf4394}
 
-The project is organized in sequential work packages (WP) as follows:
+The project is organized in a work package of sequential tasks
+(WP[1-5]) as follows:
 
 \begin{itemize}[leftmargin=*, noitemsep]
 \item WP1: \emph{gathering publicly available base datasets}
@@ -376,23 +379,24 @@ studies by \cite{Adam22,Denzel21,Morningstar19,Hezaveh17}.
 \end{enumerate}
 \item WP2: \emph{building the training dataset}
 \begin{itemize}[leftmargin=*]
-\item simulated lens images from the base datasets in WP1. These can be
-simulated with existing, open-source software (see
-Section~\ref{sec:research}), but as explained in
-Section~\ref{sec:methods} could easily be re-implemented
-to run on the available fleet of NVIDIA A100 GPUs available to us.
+\item simulated lens images and deflection fields from the base datasets
+in WP1. These can be simulated with existing, open-source software
+(see Section~\ref{sec:research}), but as explained in
+Section~\ref{sec:methods} could easily be implemented
+to run on the available NVIDIA A100 GPU cluster available to us.
 \end{itemize}
 \item WP3: \emph{testing and training deep learning architecture}
 \begin{itemize}[leftmargin=*]
-\item this is the most labour-intensive WP and will be run in parallel
+\item this is the most compute-intensive task and will be run in parallel
 on our GPU science cluster of 8 NVIDIA A100 GPUs. The network
 architectures mentioned in Section~\ref{sec:methods} are
 readily available on GitHub, but in most cases will have to be
-adjusted to fit our particular data format.
+adjusted to fit our particular data specifications.
 \end{itemize}
 \item WP4: \emph{integration into a lens modelling framework}
 \begin{itemize}[leftmargin=*]
-\item the tools mentioned in WP2 can be repurposed for this
+\item strategies from studies mentioned in WP2 may be adapted for this
+purpose, or a new strategy could be explored.
 \end{itemize}
 \item WP5: \emph{benchmarking and real-world testing}
 \begin{enumerate}[leftmargin=*]
@@ -408,11 +412,12 @@ from \cite{Huang21,Storfer22}.
 
 
 \subsubsection{Possible risks}
-\label{sec:org4847594}
+\label{sec:org5faa5fe}
 
 The potential risks of this project mainly comprise of undesirable
-outcomes which either impact the model's autonomy or extend the
-project timeline due to additional work, but can be ameliorated:
+outcomes which either impact the model's autonomy and efficiency, or
+extend the project timeline due to additional work, but can be
+ameliorated:
 \begin{itemize}[leftmargin=*, noitemsep]
 \item The principal idea of the proposed method relies on the degeneracy
 problem in lens systems. While in theory there should be an infinite
@@ -437,13 +442,28 @@ from the method.
 \end{itemize}
 
 \subsubsection{Potential impact}
-\label{sec:orge177176}
+\label{sec:orgba023a1}
 
+Demonstrating the feasibility of the proposed method would mark a
+significant achievement as it would be the first instance of a
+strong-lensing modelling technique capable of directly inferring 3D
+matter distributions and its individual components (dark matter,
+stars, gas, and dust).  In particular, it will model the first-ever 3D
+map of a dark matter halo for strong-lens observations, a crucial,
+still missing component for studying the astrophysical and
+cosmological properties of our Universe. \\[0pt]
+Moreover, the method could provide prior constraints for time-delay
+tomography, possibly enabling a much-needed determination of the
+Hubble constant at the 1\%-precision level. \\[0pt]
+Designed with efficiency in mind, the method is also capable of
+autonomously processing vast amounts of new lensing data. This is
+especially critical in light of the gravitational lens discoveries
+anticipated from next-generation telescopes, such as SKA or Euclid.
 
 
 \newpage
 \section{Bibliography}
-\label{sec:org2d64d63}
+\label{sec:orge24f7dc}
 
 \bibliographystyle{apsrev}
 \bibliography{gl3dgen}

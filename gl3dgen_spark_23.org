@@ -4,8 +4,8 @@
 #+DATE: 2023-04-26 Wed
 #+OPTIONS: author:nil title:t date:nil timestamp:nil toc:nil num:t \n:nil
 #+LATEX_CLASS_OPTIONS: [a4paper,10pt]
-#+LATEX_HEADER: \usepackage[margin=1.2in]{geometry}
-#+LATEX_HEADER: \newgeometry{top=1in,bottom=1in,right=1.25in,left=1.25in}
+#+LATEX_HEADER: \usepackage[margin=1.0in]{geometry}
+#+LATEX_HEADER: \newgeometry{top=1in,bottom=1in,right=1.125in,left=1.125in}
 #+LATEX_HEADER: \usepackage{setspace}
 #+LATEX_HEADER: \onehalfspacing
 #+LATEX_HEADER: \usepackage{titling}
@@ -184,7 +184,7 @@ lens model fits due to the multiplicity of orientations from which a
 galaxy model can be projected onto a 2D plane (as shown by these
 previous studies).
 
-In astrophysical, hydrodynamical simulations, the prevalent data
+In astrophysical, hydrodynamical simulations, the commonly-used data
 format is called /smooth-particle hydrodynamics/
 [[citep:&Gingold77;&Lucy77;&Monaghan92]]. Basically, the same data
 type is referred to as /point clouds/ in the computer vision
@@ -214,34 +214,36 @@ scientific advancement across all disciplines.
 
 The main objectives of this research are:
 #+ATTR_LATEX: :options [leftmargin=*, noitemsep]
-1) To develop a generative deep learning model that can accurately
-   predict gravitational lensing deflection fields from 3D models of
-   galaxies.
+1) To develop a generative deep learning model that can efficiently
+   and accurately predict gravitational lensing deflection fields from
+   a 3D galaxy model, optimizing for its orientation.
    #+ATTR_LATEX: :options [leftmargin=*]
    - To this end, we construct a custom training dataset of
      ray-traced, synthetic lenses from observed source images, such as
-     quasars, and projected galaxy models from publicly available
-     hydrodynamical simulation suites
+     quasars, and manually projected galaxy models from publicly
+     available hydrodynamical simulation suites
      [[citep:&Springel17;&Nelson18;&Dave19]].
 2) To embed the generative deep learning model in a (for the most part
    autonomous) Bayesian lens modelling framework analogous to
-   [[cite:&Adam22;&Denzel21;&Morningstar19;&Hezaveh17]] and compare
-   its accuracy against existing lens modelling and source
-   reconstruction techniques. Note that the proposed scheme will be
-   able to draw conclusion on the 3D structure of lenses, which is a
-   novel capability no other existing lens modelling tool possesses.
+   [[cite:&Adam22;&Denzel21;&Morningstar19;&Hezaveh17]] to fit
+   observations for galaxy models.
    #+ATTR_LATEX: :options [leftmargin=*]
+   - We will compare its accuracy and efficiency against existing lens
+     modelling and source reconstruction techniques. Note that the
+     proposed scheme will be able to directly draw conclusion on the
+     3D structure of lenses, which is a novel capability no other
+     existing lens modelling tool possesses.
    - This test can be performed with corresponding gravitational lens
      datasets from surveys such as the Strong Lensing Legacy Survey
      [[citep:SL2S:&Gavazzi12;&Sonnenfeld15]], the Sloan Lens ACS
      Survey [[citep:SLACS:&Bolton2006;&Shu17]], or the Baryon
      Oscillation Spectroscopic Survey (BOSS) Emission-Line Lens Survey
      [[citep:BELLS:&Brownstein11;&Shu2016]].
-3) To test the generative lens modelling scheme on new gravitational
-   lens observations in a "real-world" setting, and to investigate the
-   relative impact of 3D dark matter distributions, galaxy shape,
-   orientation, galaxy formation scenarios, and other properties on
-   these observations.\footnote{This could also be considered part of a follow-up project.}
+3) To test the generative lens modelling scheme on new unseen
+   gravitational lens observations in a "real-world" setting, and to
+   investigate the relative impact of 3D dark matter distributions,
+   galaxy shape, orientation, galaxy formation scenarios, and other
+   properties on these observations.\footnote{This could also be considered part of a follow-up project.}
 
 **** Methods
 <<sec:methods>>
@@ -322,7 +324,8 @@ has to be investigated.
 
 **** Approach
 
-The project is organized in sequential work packages (WP) as follows:
+The project is organized in a work package of sequential tasks
+(WP[1-5]) as follows:
 
 #+ATTR_LATEX: :options [leftmargin=*, noitemsep]
 - WP1: /gathering publicly available base datasets/
@@ -346,21 +349,22 @@ The project is organized in sequential work packages (WP) as follows:
      studies by [[cite:&Adam22;&Denzel21;&Morningstar19;&Hezaveh17]].
 - WP2: /building the training dataset/
   #+ATTR_LATEX: :options [leftmargin=*]
-  - simulated lens images from the base datasets in WP1. These can be
-    simulated with existing, open-source software (see
-    Section@@latex:~@@\ref{sec:research}), but as explained in
-    Section@@latex:~@@\ref{sec:methods} could easily be re-implemented
-    to run on the available fleet of NVIDIA A100 GPUs available to us.
+  - simulated lens images and deflection fields from the base datasets
+    in WP1. These can be simulated with existing, open-source software
+    (see Section@@latex:~@@\ref{sec:research}), but as explained in
+    Section@@latex:~@@\ref{sec:methods} could easily be implemented
+    to run on the available NVIDIA A100 GPU cluster available to us.
 - WP3: /testing and training deep learning architecture/
   #+ATTR_LATEX: :options [leftmargin=*]
-  - this is the most labour-intensive WP and will be run in parallel
+  - this is the most compute-intensive task and will be run in parallel
     on our GPU science cluster of 8 NVIDIA A100 GPUs. The network
     architectures mentioned in Section@@latex:~@@\ref{sec:methods} are
     readily available on GitHub, but in most cases will have to be
-    adjusted to fit our particular data format.
+    adjusted to fit our particular data specifications.
 - WP4: /integration into a lens modelling framework/
   #+ATTR_LATEX: :options [leftmargin=*]
-  - the tools mentioned in WP2 can be repurposed for this
+  - strategies from studies mentioned in WP2 may be adapted for this
+    purpose, or a new strategy could be explored.
 - WP5: /benchmarking and real-world testing/
   #+ATTR_LATEX: :options [leftmargin=*]
   1) benchmarking the generative lens modelling performance on the
@@ -375,8 +379,9 @@ The project is organized in sequential work packages (WP) as follows:
 **** Possible risks
 
 The potential risks of this project mainly comprise of undesirable
-outcomes which either impact the model's autonomy or extend the
-project timeline due to additional work, but can be ameliorated:
+outcomes which either impact the model's autonomy and efficiency, or
+extend the project timeline due to additional work, but can be
+ameliorated:
 #+ATTR_LATEX: :options [leftmargin=*, noitemsep]
 - The principal idea of the proposed method relies on the degeneracy
   problem in lens systems. While in theory there should be an infinite
@@ -401,6 +406,21 @@ project timeline due to additional work, but can be ameliorated:
 
 **** Potential impact
 
+Demonstrating the feasibility of the proposed method would mark a
+significant achievement as it would be the first instance of a
+strong-lensing modelling technique capable of directly inferring 3D
+matter distributions and its individual components (dark matter,
+stars, gas, and dust).  In particular, it will model the first-ever 3D
+map of a dark matter halo for strong-lens observations, a crucial,
+still missing component for studying the astrophysical and
+cosmological properties of our Universe. \\
+Moreover, the method could provide prior constraints for time-delay
+tomography, possibly enabling a much-needed determination of the
+Hubble constant at the 1%-precision level. \\
+Designed with efficiency in mind, the method is also capable of
+autonomously processing vast amounts of new lensing data. This is
+especially critical in light of the gravitational lens discoveries
+anticipated from next-generation telescopes, such as SKA or Euclid.
 
 
 #+LATEX: \newpage
