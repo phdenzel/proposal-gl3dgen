@@ -12,7 +12,7 @@
 \usepackage{capt-of}
 \usepackage{hyperref}
 \usepackage[margin=1.0in]{geometry}
-\newgeometry{top=1in,bottom=1in,right=1.125in,left=1.125in}
+\newgeometry{top=1in,bottom=1in,right=1.0in,left=1.0in}
 \usepackage{setspace}
 \onehalfspacing
 \usepackage{titling}
@@ -39,8 +39,12 @@
 \maketitle
 \vspace{-0.8in}
 \section{Project summary}
-\label{sec:org618a3a6}
+\label{sec:org3a52a0a}
 
+This is a research proposal for the development of a novel technique
+using generative deep learning for modelling galaxies of
+gravitational lens systems in 3D, opposed to conventional methods
+limited to 2D. \\[0pt]
 Gravitational lensing is a phenomenon that occurs when rays of light
 from a distant background source are deflected by the gravitational
 field of a massive foreground object, e.g. a galaxy, which almost
@@ -71,7 +75,7 @@ galaxy models from existing hydrodynamical simulation suites for the
 purpose of creating mock observations, observational fits, and
 corresponding source reconstructions. Specifically, we will explore
 various state-of-the-art deep learning architectures, including
-diffusion models, flow-based models, generative adversarial networks
+diffusion models, vision transformers, generative adversarial networks
 (GANs), and variational autoencoders (VAEs) to develop a model that
 can accurately generate the deflection field from a given 3D galaxy
 model. The resulting deep learning model will be used to create
@@ -102,10 +106,10 @@ with big data efficiently.
 
 \newpage
 \section{Project plan}
-\label{sec:org06af9f0}
+\label{sec:org3fd4cb0}
 
 \subsection{State of research}
-\label{sec:orgdce6f22}
+\label{sec:org2562c4a}
 \label{sec:research}
 
 Although gravitational lensing is often regarded as an optical
@@ -228,18 +232,17 @@ significant challenge, but holds the potential for substantial
 scientific advancement across all disciplines.
 
 \subsection{Project description}
-\label{sec:orgf496503}
-
+\label{sec:org0260ae0}
 
 \subsubsection{Goals \& expected results}
-\label{sec:org90eab6c}
+\label{sec:org47ed191}
 \label{sec:goals}
 
 The main objectives of this research are:
 \begin{enumerate}[leftmargin=*, noitemsep]
 \item To develop a generative deep learning model that can efficiently
 and accurately predict gravitational lensing deflection fields from
-a 3D galaxy model, optimizing for its orientation.
+a 3D galaxy model, optimizing for its orientation and alignment.
 \begin{itemize}[leftmargin=*]
 \item To this end, we construct a custom training dataset of
 ray-traced, synthetic lenses from observed source images, such as
@@ -263,6 +266,10 @@ datasets from surveys such as the Strong Lensing Legacy Survey
 Survey \citep[SLACS:][]{Bolton2006,Shu17}, or the Baryon
 Oscillation Spectroscopic Survey (BOSS) Emission-Line Lens Survey
 \citep[BELLS:][]{Brownstein11,Shu2016}.
+\item The modelling tools, as well as the trained deep learning models,
+and custom training dataset will be made available for the
+community as an open-source software package for reproducibility
+of scientific results.
 \end{itemize}
 \item To test the generative lens modelling scheme on new unseen
 gravitational lens observations in a "real-world" setting, and to
@@ -272,7 +279,7 @@ properties on these observations.\footnote{This could also be considered part of
 \end{enumerate}
 
 \subsubsection{Methods}
-\label{sec:orgdf4d372}
+\label{sec:org2c5063f}
 \label{sec:methods}
 Formally, the deflection field \(\bm\alpha(\bm\theta, \xi)\) can be
 expressed through a given angle on the observer's sky \(\bm\theta\), and
@@ -322,42 +329,47 @@ generative neural networks. There are various deep learning approaches
 which can deal with such problems, each with advantages and
 trade-offs:
 \begin{itemize}[leftmargin=*, noitemsep]
-\item VAEs \citep{Kingma13} are considered fast, and explicitly
-construct a latent representation of the input, but trade accuracy
-for the sake of prior matching.
-\item Normalizing flows \citep{Rezende15} parametrize a diffeomorphism
-with a neural network and approximate likelihoods from the
-input. Since diffeomorphisms are bijective, the mapping from input
-to output is invertible, but is typically expensive in
-high-dimensional problems (such as image mappings from 3D models).
+\item VAEs \citep{Kingma13} are considered fast, and explicitly construct a
+latent representation of the input, but trade accuracy for the sake
+of prior matching. VAE models could be good candidates for initial
+tests as they are comparatively easy to train, and give insights in
+the compression, i.e. abstraction process.
 \item GANs \citep{Goodfellow14} play a minimax game between a generator
-network and a discriminator network critiques the generator during
-training. They tend to be fast during inference and generate
-high-quality outputs, but are prone to the issue of mode collapse.
-\item Autoregressive models \citep{Parmar18} have been shown to consistently outperform
-other types of models when it comes to accuracy, but tend to be
-extremely slow, especially during inference.
-\item Diffusion models \citep{Sohl-Dickstein15,Ho20} are latent
-variable models whose variables keep the dimensionality of the input
+network and a discriminator network that critiques the generator
+during training. They tend to be fast during inference and generate
+high-quality outputs, but are prone to the issue of mode
+collapse. Since these models are relatively complicated to train,
+they will be explored during later stages of the project.
+\item Autoregressive models \citep{Parmar18} have been shown to
+consistently outperform other types of models when it comes to
+accuracy, but tend to be extremely slow, especially during
+inference. Since these models hold the potential to deliver
+high-quality results, they will be investigated relatively early,
+despite their extended training phases.
+\item Diffusion models \citep{Sohl-Dickstein15,Ho20} are latent variable
+models whose variables keep the dimensionality of the input
 data. Inspired by the physical effect of the same denomination, the
 approximate posterior is fixed to a Markov chain with Gaussian noise
 transitions. These models have recently shown great success in
 generating high-quality samples, but similar to autoregressive
-models are slow in comparison to GANs or VAEs.
+models are slow in comparison to GANs or VAEs. Depending on the
+project timeline, this method may be skipped altogether.
 \end{itemize}
 
-The choice of deep learning architecture and method will ultimately
-depend on the accuracy and scalability to the lensing galaxy data, and
-has to be investigated.
+In addition, hybrid approaches that combine the strengths of the
+aforementioned methods while mitigating their weaknesses are also
+often employed.  The choice of deep learning architecture and method
+will ultimately depend on the accuracy and scalability to the lensing
+galaxy data, and has to be investigated.
 
 \subsubsection{Approach}
-\label{sec:orgdcf4394}
+\label{sec:org61d5a3f}
 
 The project is organized in a work package of sequential tasks
 (WP[1-5]) as follows:
 
 \begin{itemize}[leftmargin=*, noitemsep]
-\item WP1: \emph{gathering publicly available base datasets}
+\item WP1: \emph{gathering publicly available base datasets} (duration: < 1 month)
 \begin{enumerate}[leftmargin=*]
 \item source plane images of quasars (QSOs) from the Sloan Digital Sky
 Survey Quasar Catalog \citep{Schneider10,Paris18} and other
@@ -377,28 +389,30 @@ corresponding existing lens modelling tools. Here, only a small
 subset is needed corresponding to the samples tested in the
 studies by \cite{Adam22,Denzel21,Morningstar19,Hezaveh17}.
 \end{enumerate}
-\item WP2: \emph{building the training dataset}
+\item WP2: \emph{building the training dataset} (duration: 1-2 months)
 \begin{itemize}[leftmargin=*]
 \item simulated lens images and deflection fields from the base datasets
 in WP1. These can be simulated with existing, open-source software
 (see Section~\ref{sec:research}), but as explained in
-Section~\ref{sec:methods} could easily be implemented
-to run on the available NVIDIA A100 GPU cluster available to us.
+Section~\ref{sec:methods} could easily be implemented to
+run on the available GPU cluster available to us.
 \end{itemize}
-\item WP3: \emph{testing and training deep learning architecture}
+\item WP3: \emph{testing and training deep learning architecture} (duration: 4-5 months)
 \begin{itemize}[leftmargin=*]
-\item this is the most compute-intensive task and will be run in parallel
-on our GPU science cluster of 8 NVIDIA A100 GPUs. The network
-architectures mentioned in Section~\ref{sec:methods} are
-readily available on GitHub, but in most cases will have to be
-adjusted to fit our particular data specifications.
+\item this is the most compute-intensive task and will be run in
+parallel on our GPU science cluster of 8 NVIDIA A100 GPUs and 24
+V100 GPUs. The network architectures mentioned in
+Section~\ref{sec:methods} are typically designed for
+processing 2D or voxel data, so significant adjustments and
+novelty will be necessary to adapt them to our specific data
+requirements.
 \end{itemize}
-\item WP4: \emph{integration into a lens modelling framework}
+\item WP4: \emph{integration into a lens modelling framework} (duration: 2-3 months)
 \begin{itemize}[leftmargin=*]
 \item strategies from studies mentioned in WP2 may be adapted for this
 purpose, or a new strategy could be explored.
 \end{itemize}
-\item WP5: \emph{benchmarking and real-world testing}
+\item WP5: \emph{benchmarking and real-world testing} (duration: 1 month)
 \begin{enumerate}[leftmargin=*]
 \item benchmarking the generative lens modelling performance on the
 test dataset and comparison of the results with existing lens
@@ -410,9 +424,8 @@ from \cite{Huang21,Storfer22}.
 \end{enumerate}
 \end{itemize}
 
-
 \subsubsection{Possible risks}
-\label{sec:org5faa5fe}
+\label{sec:org621836e}
 
 The potential risks of this project mainly comprise of undesirable
 outcomes which either impact the model's autonomy and efficiency, or
@@ -442,7 +455,7 @@ from the method.
 \end{itemize}
 
 \subsubsection{Potential impact}
-\label{sec:orgba023a1}
+\label{sec:orgaa19114}
 
 Demonstrating the feasibility of the proposed method would mark a
 significant achievement as it would be the first instance of a
@@ -453,17 +466,21 @@ map of a dark matter halo for strong-lens observations, a crucial,
 still missing component for studying the astrophysical and
 cosmological properties of our Universe. \\[0pt]
 Moreover, the method could provide prior constraints for time-delay
-tomography, possibly enabling a much-needed determination of the
-Hubble constant at the 1\%-precision level. \\[0pt]
+tomography studies, possibly enabling a much-needed determination of
+the Hubble constant at the 1\%-precision level. \\[0pt]
 Designed with efficiency in mind, the method is also capable of
 autonomously processing vast amounts of new lensing data. This is
 especially critical in light of the gravitational lens discoveries
-anticipated from next-generation telescopes, such as SKA or Euclid.
+anticipated from next-generation telescopes, such as SKA or
+Euclid. The SKA in particular, prepares for data rates of several
+PB/day, and such a deep learning technology which essentially perform
+dimensionality reduction (i.e. compression) of unstructured data could
+lead to considerable advancements towards that goal.
 
 
 \newpage
 \section{Bibliography}
-\label{sec:orge24f7dc}
+\label{sec:orgdac70d7}
 
 \bibliographystyle{apsrev}
 \bibliography{gl3dgen}
