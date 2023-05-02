@@ -23,9 +23,8 @@
 ** Project summary
 
 This is a research proposal for the development of a novel technique
-using generative deep learning for modelling galaxies of
-gravitational lens systems in 3D, opposed to conventional methods
-limited to 2D. \\
+using generative deep learning for modelling galaxies of gravitational
+lens systems in 3D, opposed to conventional methods limited to 2D. \\
 Gravitational lensing is a phenomenon that occurs when rays of light
 from a distant background source are deflected by the gravitational
 field of a massive foreground object, e.g. a galaxy, which almost
@@ -172,7 +171,7 @@ Despite the apparent benefits of directly integrating these galaxy
 models to lens modelling, the already difficult computational and
 algorithmic challenges persist. However, it has been shown that deep
 learning neural networks are universal approximators
-[[citep:&Hornik89;&Kratsios20]], and often outperform conventional,
+[[citep:&Hornik89;&Kratsios20]] and often outperform conventional,
 computationally complex operations in efficiency and accuracy. Hence,
 I propose a novel data-driven deep learning approach to lens modelling
 that generates deflection fields directly from 3D galaxy models
@@ -233,7 +232,7 @@ The main objectives of this research are:
    #+ATTR_LATEX: :options [leftmargin=*]
    - We will compare its accuracy and efficiency against existing lens
      modelling and source reconstruction techniques. Note that the
-     proposed scheme will be able to directly draw conclusion on the
+     proposed scheme will be able to directly draw conclusions on the
      3D structure of lenses, which is a novel capability no other
      existing lens modelling tool possesses.
    - This test can be performed with corresponding gravitational lens
@@ -245,7 +244,7 @@ The main objectives of this research are:
    - The modelling tools, as well as the trained deep learning models,
      and custom training dataset will be made available for the
      community as an open-source software package for reproducibility
-     of scientific results.
+     of scientific results, and detailed in scientific publications.
 3) To test the generative lens modelling scheme on new unseen
    gravitational lens observations in a "real-world" setting, and to
    investigate the relative impact of 3D dark matter distributions,
@@ -456,3 +455,26 @@ significantly contribute to achieving this objective.
 # [[bibliographystyle:unsrtnat][Bibliography style]]
 [[bibliographystyle:apsrev][Bibliography style]]
 [[bibliography:./gl3dgen.bib][Bibliography file]]
+
+
+** Budgeting                                                       :noexport:
+
+Number of hours per month: 168
+Number of hours per year: 12*168=2016
+
+|---+-------+-------------+-------------------+--------+------------+---------------|
+|   | Role  | Description | hourly rate (CHF) | Pensum | Total/year | excl. socials |
+| ! |       |             |            h_rate |      q |      total |               |
+|---+-------+-------------+-------------------+--------+------------+---------------|
+| # | WiAss | ?           |                50 |     60 |   60480.00 |      52137.93 |
+| # | WiMA  | denp        |                70 |     10 |   14112.00 |      12165.52 |
+| # | SenR  | gava        |               110 |      5 |   11088.00 |       9558.62 |
+| # | SenR  | scik        |               140 |      4 |   11289.60 |       9732.41 |
+| # | Misc  |             |                50 |      0 |       0.00 |          0.00 |
+|---+-------+-------------+-------------------+--------+------------+---------------|
+|   |       |             |                   |        |   96969.60 |      83594.48 |
+|---+-------+-------------+-------------------+--------+------------+---------------|
+#+TBLFM: @3$6..@-1$6=2016*$h_rate*$q/100;%.2f
+#+TBLFM: @3$7..@-1$7=$total/1.16;%.2f
+#+TBLFM: @>$6=vsum(@3$6..@-1$6);%.2f
+#+TBLFM: @>$7=vsum(@3$7..@-1$7);%.2f
