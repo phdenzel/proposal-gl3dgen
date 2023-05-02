@@ -442,10 +442,10 @@ Designed with efficiency in mind, the method is also capable of
 autonomously processing vast amounts of new lensing data. This is
 especially critical in light of the gravitational lens discoveries
 anticipated from next-generation telescopes, such as SKA or
-Euclid. The SKA in particular, prepares for data rates of several
-PB/day, and such a deep learning technology which essentially perform
+Euclid. The SKA, in particular, prepares for data rates of several
+PB/day, and a deep learning technology capable of performing
 dimensionality reduction (i.e. compression) of unstructured data could
-lead to considerable advancements towards that goal.
+significantly contribute to achieving this objective.
 
 
 #+LATEX: \newpage
