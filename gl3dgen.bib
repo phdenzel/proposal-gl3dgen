@@ -805,45 +805,6 @@
   url       = {https://doi.org/10.48550/arXiv.1706.02413},
 }
 
-@InProceedings{Zhang15,
-  author    = {Ji Zhang and Sanjiv Singh},
-  booktitle = {2015 {IEEE} International Conference on Robotics and Automation ({ICRA})},
-  title     = {Visual-lidar odometry and mapping: low-drift, robust, and fast},
-  year      = {2015},
-  month     = {may},
-  publisher = {{IEEE}},
-  doi       = {10.1109/icra.2015.7139486},
-  groups    = {point clouds},
-  url       = {https://doi.org/10.1109/ICRA.2015.7139486},
-}
-
-@Article{Rufus20,
-  author    = {Rufus, Nivedita and Nair, Unni Krishnan R. and Kumar, A. V. S. Sai Bhargav and Madiraju, Vashist and Krishna, K. Madhava},
-  title     = {SROM: Simple Real-time Odometry and Mapping using LiDAR data for Autonomous Vehicles},
-  year      = {2020},
-  copyright = {arXiv.org perpetual, non-exclusive license},
-  doi       = {10.48550/ARXIV.2005.02042},
-  groups    = {point clouds},
-  keywords  = {Robotics (cs.RO), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  publisher = {arXiv},
-  url       = {https://doi.org/10.48550/arXiv.2005.02042},
-}
-
-@Article{Nuechter07,
-  author    = {Andreas Nüchter and Kai Lingemann and Joachim Hertzberg and Hartmut Surmann},
-  journal   = {Journal of Field Robotics},
-  title     = {6D {SLAM}-3D mapping outdoor environments},
-  year      = {2007},
-  month     = {aug},
-  number    = {8-9},
-  pages     = {699--722},
-  volume    = {24},
-  doi       = {10.1002/rob.20209},
-  groups    = {point clouds},
-  publisher = {Wiley},
-  url       = {https://doi.org/10.1002/rob.20209},
-}
-
 @InCollection{Nagashima2007,
   author    = {Sei Nagashima and Koichi Ito and Takafumi Aoki and Hideaki Ishii and Koji Kobayashi},
   booktitle = {Lecture Notes in Computer Science},
@@ -856,17 +817,6 @@
   url       = {https://doi.org/10.1007/978-3-540-74260-9_19},
 }
 
-@InProceedings{Rusinkiewicz00,
-  author    = {Szymon Rusinkiewicz and Marc Levoy},
-  booktitle = {Proceedings of the 27th annual conference on Computer graphics and interactive techniques - {SIGGRAPH} {\textquotesingle}00},
-  title     = {{QSplat}},
-  year      = {2000},
-  publisher = {{ACM} Press},
-  doi       = {10.1145/344779.344940},
-  groups    = {point clouds},
-  url       = {https://doi.org/10.1145/344779.344940},
-}
-
 @Article{Vinyals2015,
   author    = {Vinyals, Oriol and Bengio, Samy and Kudlur, Manjunath},
   title     = {Order Matters: Sequence to sequence for sets},
@@ -877,42 +827,6 @@
   keywords  = {Machine Learning (stat.ML), Computation and Language (cs.CL), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences},
   publisher = {arXiv},
   url       = {https://doi.org/10.48550/arXiv.1511.06391},
-}
-
-@InProceedings{Armeni16,
-  author    = {Iro Armeni and Ozan Sener and Amir R. Zamir and Helen Jiang and Ioannis Brilakis and Martin Fischer and Silvio Savarese},
-  booktitle = {2016 {IEEE} Conference on Computer Vision and Pattern Recognition ({CVPR})},
-  title     = {3D Semantic Parsing of Large-Scale Indoor Spaces},
-  year      = {2016},
-  month     = {jun},
-  publisher = {{IEEE}},
-  doi       = {10.1109/cvpr.2016.170},
-  groups    = {point clouds},
-  url       = {https://doi.org/10.1109/CVPR.2016.170},
-}
-
-@Article{BenShabat17,
-  author    = {Ben-Shabat, Yizhak and Lindenbaum, Michael and Fischer, Anath},
-  title     = {3D Point Cloud Classification and Segmentation using 3D Modified Fisher Vector Representation for Convolutional Neural Networks},
-  year      = {2017},
-  copyright = {arXiv.org perpetual, non-exclusive license},
-  doi       = {10.48550/ARXIV.1711.08241},
-  groups    = {point clouds},
-  keywords  = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  publisher = {arXiv},
-  url       = {https://doi.org/10.48550/arXiv.1711.08241},
-}
-
-@Article{Klokov17,
-  author    = {Klokov, Roman and Lempitsky, Victor},
-  title     = {Escape from Cells: Deep Kd-Networks for the Recognition of 3D Point Cloud Models},
-  year      = {2017},
-  copyright = {arXiv.org perpetual, non-exclusive license},
-  doi       = {10.48550/ARXIV.1704.01222},
-  groups    = {point clouds},
-  keywords  = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  publisher = {arXiv},
-  url       = {https://doi.org/10.48550/arXiv.1704.01222},
 }
 
 @Article{Kaul21,
@@ -1188,24 +1102,258 @@
   url       = {https://doi.org/10.1051/0004-6361/201732445},
 }
 
+@Article{Guo2019,
+  author        = {Guo, Yulan and Wang, Hanyun and Hu, Qingyong and Liu, Hao and Liu, Li and Bennamoun, Mohammed},
+  title         = {Deep Learning for 3D Point Clouds: A Survey},
+  year          = {2019},
+  month         = dec,
+  abstract      = {Point cloud learning has lately attracted increasing attention due to its wide applications in many areas, such as computer vision, autonomous driving, and robotics. As a dominating technique in AI, deep learning has been successfully used to solve various 2D vision problems. However, deep learning on point clouds is still in its infancy due to the unique challenges faced by the processing of point clouds with deep neural networks. Recently, deep learning on point clouds has become even thriving, with numerous methods being proposed to address different problems in this area. To stimulate future research, this paper presents a comprehensive review of recent progress in deep learning methods for point clouds. It covers three major tasks, including 3D shape classification, 3D object detection and tracking, and 3D point cloud segmentation. It also presents comparative results on several publicly available datasets, together with insightful observations and inspiring future research directions.},
+  archiveprefix = {arXiv},
+  copyright     = {arXiv.org perpetual, non-exclusive license},
+  doi           = {10.48550/ARXIV.1912.12033},
+  eprint        = {1912.12033},
+  file          = {:http\://arxiv.org/pdf/1912.12033v2:PDF},
+  groups        = {point clouds, surveys},
+  keywords      = {Computer Vision and Pattern Recognition (cs.CV), Machine Learning (cs.LG), Robotics (cs.RO), Image and Video Processing (eess.IV), FOS: Computer and information sciences, FOS: Electrical engineering, electronic engineering, information engineering},
+  primaryclass  = {cs.CV},
+  publisher     = {arXiv},
+}
+
+@Article{Lu2020,
+  author        = {Lu, Haoming and Shi, Humphrey},
+  title         = {Deep Learning for 3D Point Cloud Understanding: A Survey},
+  year          = {2020},
+  month         = sep,
+  abstract      = {The development of practical applications, such as autonomous driving and robotics, has brought increasing attention to 3D point cloud understanding. While deep learning has achieved remarkable success on image-based tasks, there are many unique challenges faced by deep neural networks in processing massive, unstructured and noisy 3D points. To demonstrate the latest progress of deep learning for 3D point cloud understanding, this paper summarizes recent remarkable research contributions in this area from several different directions (classification, segmentation, detection, tracking, flow estimation, registration, augmentation and completion), together with commonly used datasets, metrics and state-of-the-art performances. More information regarding this survey can be found at: https://github.com/SHI-Labs/3D-Point-Cloud-Learning.},
+  archiveprefix = {arXiv},
+  copyright     = {arXiv.org perpetual, non-exclusive license},
+  doi           = {10.48550/ARXIV.2009.08920},
+  eprint        = {2009.08920},
+  file          = {:http\://arxiv.org/pdf/2009.08920v2:PDF},
+  groups        = {point clouds, surveys},
+  keywords      = {Computer Vision and Pattern Recognition (cs.CV), Machine Learning (cs.LG), FOS: Computer and information sciences},
+  primaryclass  = {cs.CV},
+  publisher     = {arXiv},
+}
+
+@Article{Chen2022,
+  author        = {Chen, Chaoqi and Wu, Yushuang and Dai, Qiyuan and Zhou, Hong-Yu and Xu, Mutian and Yang, Sibei and Han, Xiaoguang and Yu, Yizhou},
+  title         = {A Survey on Graph Neural Networks and Graph Transformers in Computer Vision: A Task-Oriented Perspective},
+  year          = {2022},
+  month         = sep,
+  abstract      = {Graph Neural Networks (GNNs) have gained momentum in graph representation learning and boosted the state of the art in a variety of areas, such as data mining (\emph{e.g.,} social network analysis and recommender systems), computer vision (\emph{e.g.,} object detection and point cloud learning), and natural language processing (\emph{e.g.,} relation extraction and sequence learning), to name a few. With the emergence of Transformers in natural language processing and computer vision, graph Transformers embed a graph structure into the Transformer architecture to overcome the limitations of local neighborhood aggregation while avoiding strict structural inductive biases. In this paper, we present a comprehensive review of GNNs and graph Transformers in computer vision from a task-oriented perspective. Specifically, we divide their applications in computer vision into five categories according to the modality of input data, \emph{i.e.,} 2D natural images, videos, 3D data, vision + language, and medical images. In each category, we further divide the applications according to a set of vision tasks. Such a task-oriented taxonomy allows us to examine how each task is tackled by different GNN-based approaches and how well these approaches perform. Based on the necessary preliminaries, we provide the definitions and challenges of the tasks, in-depth coverage of the representative approaches, as well as discussions regarding insights, limitations, and future directions.},
+  archiveprefix = {arXiv},
+  copyright     = {arXiv.org perpetual, non-exclusive license},
+  doi           = {10.48550/ARXIV.2209.13232},
+  eprint        = {2209.13232},
+  file          = {:http\://arxiv.org/pdf/2209.13232v3:PDF},
+  groups        = {point clouds, surveys},
+  keywords      = {Computer Vision and Pattern Recognition (cs.CV), Artificial Intelligence (cs.AI), Machine Learning (cs.LG), FOS: Computer and information sciences},
+  primaryclass  = {cs.CV},
+  publisher     = {arXiv},
+}
+
+@Article{Shi2020,
+  author        = {Shi, Weijing and Ragunathan, and {Rajkumar}},
+  title         = {Point-GNN: Graph Neural Network for 3D Object Detection in a Point Cloud},
+  year          = {2020},
+  month         = mar,
+  abstract      = {In this paper, we propose a graph neural network to detect objects from a LiDAR point cloud. Towards this end, we encode the point cloud efficiently in a fixed radius near-neighbors graph. We design a graph neural network, named Point-GNN, to predict the category and shape of the object that each vertex in the graph belongs to. In Point-GNN, we propose an auto-registration mechanism to reduce translation variance, and also design a box merging and scoring operation to combine detections from multiple vertices accurately. Our experiments on the KITTI benchmark show the proposed approach achieves leading accuracy using the point cloud alone and can even surpass fusion-based algorithms. Our results demonstrate the potential of using the graph neural network as a new approach for 3D object detection. The code is available https://github.com/WeijingShi/Point-GNN.},
+  archiveprefix = {arXiv},
+  copyright     = {arXiv.org perpetual, non-exclusive license},
+  doi           = {10.48550/ARXIV.2003.01251},
+  eprint        = {2003.01251},
+  file          = {:http\://arxiv.org/pdf/2003.01251v1:PDF},
+  groups        = {point clouds},
+  keywords      = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences},
+  primaryclass  = {cs.CV},
+  publisher     = {arXiv},
+}
+
+@Article{Zarzar2019,
+  author        = {Zarzar, Jesus and Giancola, Silvio and Ghanem, Bernard},
+  title         = {PointRGCN: Graph Convolution Networks for 3D Vehicles Detection Refinement},
+  year          = {2019},
+  month         = nov,
+  abstract      = {In autonomous driving pipelines, perception modules provide a visual understanding of the surrounding road scene. Among the perception tasks, vehicle detection is of paramount importance for a safe driving as it identifies the position of other agents sharing the road. In our work, we propose PointRGCN: a graph-based 3D object detection pipeline based on graph convolutional networks (GCNs) which operates exclusively on 3D LiDAR point clouds. To perform more accurate 3D object detection, we leverage a graph representation that performs proposal feature and context aggregation. We integrate residual GCNs in a two-stage 3D object detection pipeline, where 3D object proposals are refined using a novel graph representation. In particular, R-GCN is a residual GCN that classifies and regresses 3D proposals, and C-GCN is a contextual GCN that further refines proposals by sharing contextual information between multiple proposals. We integrate our refinement modules into a novel 3D detection pipeline, PointRGCN, and achieve state-of-the-art performance on the easy difficulty for the bird eye view detection task.},
+  archiveprefix = {arXiv},
+  copyright     = {arXiv.org perpetual, non-exclusive license},
+  doi           = {10.48550/ARXIV.1911.12236},
+  eprint        = {1911.12236},
+  file          = {:http\://arxiv.org/pdf/1911.12236v1:PDF},
+  groups        = {point clouds},
+  keywords      = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences},
+  primaryclass  = {cs.CV},
+  publisher     = {arXiv},
+}
+
+@Article{Pan2020,
+  author    = {Liang Pan},
+  journal   = {{IEEE} Robotics and Automation Letters},
+  title     = {{ECG}: Edge-aware Point Cloud Completion with Graph Convolution},
+  year      = {2020},
+  month     = {jul},
+  number    = {3},
+  pages     = {4392--4398},
+  volume    = {5},
+  doi       = {10.1109/lra.2020.2994483},
+  groups    = {point clouds},
+  publisher = {Institute of Electrical and Electronics Engineers ({IEEE})},
+}
+
+@Article{Zhu2021,
+  author    = {Liping Zhu and Bingyao Wang and Gangyi Tian and Wenjie Wang and Chengyang Li},
+  journal   = {Neurocomputing},
+  title     = {Towards point cloud completion: Point Rank Sampling and Cross-Cascade Graph {CNN}},
+  year      = {2021},
+  month     = {oct},
+  pages     = {1--16},
+  volume    = {461},
+  doi       = {10.1016/j.neucom.2021.07.035},
+  groups    = {point clouds},
+  publisher = {Elsevier {BV}},
+}
+
+@Article{Shi2021,
+  author        = {Shi, Jieqi and Xu, Lingyun and Heng, Liang and Shen, Shaojie},
+  title         = {Graph-Guided Deformation for Point Cloud Completion},
+  year          = {2021},
+  month         = nov,
+  abstract      = {For a long time, the point cloud completion task has been regarded as a pure generation task. After obtaining the global shape code through the encoder, a complete point cloud is generated using the shape priorly learnt by the networks. However, such models are undesirably biased towards prior average objects and inherently limited to fit geometry details. In this paper, we propose a Graph-Guided Deformation Network, which respectively regards the input data and intermediate generation as controlling and supporting points, and models the optimization guided by a graph convolutional network(GCN) for the point cloud completion task. Our key insight is to simulate the least square Laplacian deformation process via mesh deformation methods, which brings adaptivity for modeling variation in geometry details. By this means, we also reduce the gap between the completion task and the mesh deformation algorithms. As far as we know, we are the first to refine the point cloud completion task by mimicing traditional graphics algorithms with GCN-guided deformation. We have conducted extensive experiments on both the simulated indoor dataset ShapeNet, outdoor dataset KITTI, and our self-collected autonomous driving dataset Pandar40. The results show that our method outperforms the existing state-of-the-art algorithms in the 3D point cloud completion task.},
+  archiveprefix = {arXiv},
+  copyright     = {arXiv.org perpetual, non-exclusive license},
+  doi           = {10.48550/ARXIV.2112.01840},
+  eprint        = {2112.01840},
+  file          = {:http\://arxiv.org/pdf/2112.01840v1:PDF},
+  groups        = {point clouds},
+  keywords      = {Robotics (cs.RO), Artificial Intelligence (cs.AI), Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences},
+  primaryclass  = {cs.RO},
+  publisher     = {arXiv},
+}
+
+@Article{Yifan2018,
+  author        = {Yifan, Wang and Wu, Shihao and Huang, Hui and Cohen-Or, Daniel and Sorkine-Hornung, Olga},
+  title         = {Patch-based Progressive 3D Point Set Upsampling},
+  year          = {2018},
+  month         = nov,
+  abstract      = {We present a detail-driven deep neural network for point set upsampling. A high-resolution point set is essential for point-based rendering and surface reconstruction. Inspired by the recent success of neural image super-resolution techniques, we progressively train a cascade of patch-based upsampling networks on different levels of detail end-to-end. We propose a series of architectural design contributions that lead to a substantial performance boost. The effect of each technical contribution is demonstrated in an ablation study. Qualitative and quantitative experiments show that our method significantly outperforms the state-of-the-art learning-based and optimazation-based approaches, both in terms of handling low-resolution inputs and revealing high-fidelity details.},
+  archiveprefix = {arXiv},
+  copyright     = {arXiv.org perpetual, non-exclusive license},
+  doi           = {10.48550/ARXIV.1811.11286},
+  eprint        = {1811.11286},
+  file          = {:http\://arxiv.org/pdf/1811.11286v3:PDF},
+  groups        = {point clouds},
+  keywords      = {Computer Vision and Pattern Recognition (cs.CV), Graphics (cs.GR), Machine Learning (cs.LG), FOS: Computer and information sciences},
+  primaryclass  = {cs.CV},
+  publisher     = {arXiv},
+}
+
+@Article{Qian2019,
+  author        = {Qian, Guocheng and Abualshour, Abdulellah and Li, Guohao and Thabet, Ali and Ghanem, Bernard},
+  title         = {PU-GCN: Point Cloud Upsampling using Graph Convolutional Networks},
+  year          = {2019},
+  month         = nov,
+  abstract      = {The effectiveness of learning-based point cloud upsampling pipelines heavily relies on the upsampling modules and feature extractors used therein. For the point upsampling module, we propose a novel model called NodeShuffle, which uses a Graph Convolutional Network (GCN) to better encode local point information from point neighborhoods. NodeShuffle is versatile and can be incorporated into any point cloud upsampling pipeline. Extensive experiments show how NodeShuffle consistently improves state-of-the-art upsampling methods. For feature extraction, we also propose a new multi-scale point feature extractor, called Inception DenseGCN. By aggregating features at multiple scales, this feature extractor enables further performance gain in the final upsampled point clouds. We combine Inception DenseGCN with NodeShuffle into a new point upsampling pipeline called PU-GCN. PU-GCN sets new state-of-art performance with much fewer parameters and more efficient inference.},
+  archiveprefix = {arXiv},
+  copyright     = {arXiv.org perpetual, non-exclusive license},
+  doi           = {10.48550/ARXIV.1912.03264},
+  eprint        = {1912.03264},
+  file          = {:http\://arxiv.org/pdf/1912.03264v3:PDF},
+  groups        = {point clouds},
+  keywords      = {Computer Vision and Pattern Recognition (cs.CV), Computational Geometry (cs.CG), Machine Learning (cs.LG), FOS: Computer and information sciences},
+  primaryclass  = {cs.CV},
+  publisher     = {arXiv},
+}
+
+@Article{Wu2019,
+  author        = {Wu, Huikai and Zhang, Junge and Huang, Kaiqi},
+  title         = {Point Cloud Super Resolution with Adversarial Residual Graph Networks},
+  year          = {2019},
+  month         = aug,
+  abstract      = {Point cloud super-resolution is a fundamental problem for 3D reconstruction and 3D data understanding. It takes a low-resolution (LR) point cloud as input and generates a high-resolution (HR) point cloud with rich details. In this paper, we present a data-driven method for point cloud super-resolution based on graph networks and adversarial losses. The key idea of the proposed network is to exploit the local similarity of point cloud and the analogy between LR input and HR output. For the former, we design a deep network with graph convolution. For the latter, we propose to add residual connections into graph convolution and introduce a skip connection between input and output. The proposed network is trained with a novel loss function, which combines Chamfer Distance (CD) and graph adversarial loss. Such a loss function captures the characteristics of HR point cloud automatically without manual design. We conduct a series of experiments to evaluate our method and validate the superiority over other methods. Results show that the proposed method achieves the state-of-the-art performance and have a good generalization ability to unseen data.},
+  archiveprefix = {arXiv},
+  copyright     = {Creative Commons Attribution 4.0 International},
+  doi           = {10.48550/ARXIV.1908.02111},
+  eprint        = {1908.02111},
+  file          = {:http\://arxiv.org/pdf/1908.02111v1:PDF},
+  groups        = {point clouds},
+  keywords      = {Graphics (cs.GR), Image and Video Processing (eess.IV), FOS: Computer and information sciences, FOS: Electrical engineering, electronic engineering, information engineering},
+  primaryclass  = {cs.GR},
+  publisher     = {arXiv},
+}
+
+@Article{Qian2020,
+  author        = {Qian, Yue and Hou, Junhui and Kwong, Sam and He, Ying},
+  title         = {PUGeo-Net: A Geometry-centric Network for 3D Point Cloud Upsampling},
+  year          = {2020},
+  month         = feb,
+  abstract      = {This paper addresses the problem of generating uniform dense point clouds to describe the underlying geometric structures from given sparse point clouds. Due to the irregular and unordered nature, point cloud densification as a generative task is challenging. To tackle the challenge, we propose a novel deep neural network based method, called PUGeo-Net, that learns a $3\times 3$ linear transformation matrix $\bf T$ for each input point. Matrix $\mathbf T$ approximates the augmented Jacobian matrix of a local parameterization and builds a one-to-one correspondence between the 2D parametric domain and the 3D tangent plane so that we can lift the adaptively distributed 2D samples (which are also learned from data) to 3D space. After that, we project the samples to the curved surface by computing a displacement along the normal of the tangent plane. PUGeo-Net is fundamentally different from the existing deep learning methods that are largely motivated by the image super-resolution techniques and generate new points in the abstract feature space. Thanks to its geometry-centric nature, PUGeo-Net works well for both CAD models with sharp features and scanned models with rich geometric details. Moreover, PUGeo-Net can compute the normal for the original and generated points, which is highly desired by the surface reconstruction algorithms. Computational results show that PUGeo-Net, the first neural network that can jointly generate vertex coordinates and normals, consistently outperforms the state-of-the-art in terms of accuracy and efficiency for upsampling factor $4\sim 16$.},
+  archiveprefix = {arXiv},
+  copyright     = {arXiv.org perpetual, non-exclusive license},
+  doi           = {10.48550/ARXIV.2002.10277},
+  eprint        = {2002.10277},
+  file          = {:http\://arxiv.org/pdf/2002.10277v2:PDF},
+  groups        = {point clouds},
+  keywords      = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences},
+  primaryclass  = {cs.CV},
+  publisher     = {arXiv},
+}
+
+@Article{Pistilli2020,
+  author        = {Pistilli, Francesca and Fracastoro, Giulia and Valsesia, Diego and Magli, Enrico},
+  title         = {Learning Graph-Convolutional Representations for Point Cloud Denoising},
+  year          = {2020},
+  month         = jul,
+  abstract      = {Point clouds are an increasingly relevant data type but they are often corrupted by noise. We propose a deep neural network based on graph-convolutional layers that can elegantly deal with the permutation-invariance problem encountered by learning-based point cloud processing methods. The network is fully-convolutional and can build complex hierarchies of features by dynamically constructing neighborhood graphs from similarity among the high-dimensional feature representations of the points. When coupled with a loss promoting proximity to the ideal surface, the proposed approach significantly outperforms state-of-the-art methods on a variety of metrics. In particular, it is able to improve in terms of Chamfer measure and of quality of the surface normals that can be estimated from the denoised data. We also show that it is especially robust both at high noise levels and in presence of structured noise such as the one encountered in real LiDAR scans.},
+  archiveprefix = {arXiv},
+  copyright     = {arXiv.org perpetual, non-exclusive license},
+  doi           = {10.48550/ARXIV.2007.02578},
+  eprint        = {2007.02578},
+  file          = {:http\://arxiv.org/pdf/2007.02578v1:PDF},
+  groups        = {point clouds},
+  keywords      = {Computer Vision and Pattern Recognition (cs.CV), Graphics (cs.GR), Image and Video Processing (eess.IV), FOS: Computer and information sciences, FOS: Electrical engineering, electronic engineering, information engineering},
+  primaryclass  = {cs.CV},
+  publisher     = {arXiv},
+}
+
+@Article{Luo2020,
+  author        = {Luo, Shitong and Hu, Wei},
+  title         = {Differentiable Manifold Reconstruction for Point Cloud Denoising},
+  year          = {2020},
+  month         = {oct},
+  abstract      = {3D point clouds are often perturbed by noise due to the inherent limitation of acquisition equipments, which obstructs downstream tasks such as surface reconstruction, rendering and so on. Previous works mostly infer the displacement of noisy points from the underlying surface, which however are not designated to recover the surface explicitly and may lead to sub-optimal denoising results. To this end, we propose to learn the underlying manifold of a noisy point cloud from differentiably subsampled points with trivial noise perturbation and their embedded neighborhood feature, aiming to capture intrinsic structures in point clouds. Specifically, we present an autoencoder-like neural network. The encoder learns both local and non-local feature representations of each point, and then samples points with low noise via an adaptive differentiable pooling operation. Afterwards, the decoder infers the underlying manifold by transforming each sampled point along with the embedded feature of its neighborhood to a local surface centered around the point. By resampling on the reconstructed manifold, we obtain a denoised point cloud. Further, we design an unsupervised training loss, so that our network can be trained in either an unsupervised or supervised fashion. Experiments show that our method significantly outperforms state-of-the-art denoising methods under both synthetic noise and real world noise. The code and data are available at https://github.com/luost26/DMRDenoise},
+  archiveprefix = {arXiv},
+  booktitle     = {Proceedings of the 28th {ACM} International Conference on Multimedia},
+  copyright     = {arXiv.org perpetual, non-exclusive license},
+  date          = {2020-07-27},
+  doi           = {10.1145/3394171.3413727},
+  eprint        = {2007.13551},
+  file          = {:http\://arxiv.org/pdf/2007.13551v2:PDF},
+  groups        = {point clouds},
+  keywords      = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences},
+  primaryclass  = {cs.CV},
+  publisher     = {{ACM}},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:
 0 AllEntriesGroup:;
 1 StaticGroup:cv algorithms\;0\;1\;0xffe6b3ff\;\;\;;
-1 StaticGroup:datasets\;0\;1\;0x664db3ff\;\;\;;
+1 StaticGroup:datasets\;0\;0\;0x664db3ff\;\;\;;
 2 StaticGroup:lensing\;0\;1\;0x990000ff\;\;\;;
 2 StaticGroup:quasars\;0\;1\;0xe6b3ccff\;\;\;;
 1 StaticGroup:galaxy theory\;0\;1\;0xffffffff\;\;\;;
 1 StaticGroup:generative deep learning\;0\;1\;0x6680e6ff\;\;\;;
-1 StaticGroup:hydrodynamics\;0\;1\;0x669966ff\;\;\;;
+1 StaticGroup:hydrodynamics\;0\;0\;0x669966ff\;\;\;;
 2 StaticGroup:simulations\;0\;1\;0xb3e6b3ff\;\;\;;
-1 StaticGroup:lens\;0\;1\;0xe64d4dff\;\;\;;
+1 StaticGroup:lens\;0\;0\;0xe64d4dff\;\;\;;
 2 StaticGroup:identification\;0\;1\;0xffb366ff\;\;\;;
 2 StaticGroup:modelling\;0\;1\;0xb399ffff\;\;\;;
 3 StaticGroup:degeneracy\;0\;1\;0x80b3b3ff\;\;\;;
 1 StaticGroup:neural network theory\;0\;0\;0xffe666ff\;\;\;;
-1 StaticGroup:point clouds\;0\;0\;0x4d4d4dff\;\;\;;
+1 StaticGroup:point clouds\;0\;1\;0x4d4d4dff\;\;\;;
+2 StaticGroup:surveys\;0\;0\;0x8a8a8aff\;\;\;;
 }
 
 @Comment{jabref-meta: saveActions:disabled;
